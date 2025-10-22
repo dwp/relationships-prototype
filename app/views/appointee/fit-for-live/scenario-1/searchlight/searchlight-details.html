@@ -1,0 +1,248 @@
+{% extends "layouts/searchlight.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "Beta"
+  },
+  html: 'This is a new service. Your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+}) }}
+
+{% from "quick-reference/macro.njk" import dwpQuickReference %}
+
+{{
+        dwpQuickReference({
+            ariaLabel: "Case information",
+            classes: "dwp-quick-reference--alternative",
+            primaryReference: {
+                text: 'Name:',
+                value: 'MS JENNIFER COLES'
+            },
+            secondaryReference: {
+                text: 'JK151617B',
+                textDisplay: true,
+                value: '16 JANUARY 1969'
+            }
+        })
+}}
+
+{% endblock %}
+
+{% block content %}
+
+<form class="form" method="post" novalidate>
+  <div class="govuk-grid-row">
+
+     <h2 class="govuk-heading-m">Personal details</h2>
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Name"
+      },
+      value: {
+        text: "Jennifer Coles"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "View maintenance",
+            visuallyHiddenText: "name"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Date of birth"
+      },
+      value: {
+        text: "16 JANUARY 1969"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "View maintenance",
+            visuallyHiddenText: "address"
+          },
+           {
+            href: "#",
+            text: "View history",
+            visuallyHiddenText: "contact details"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "National Insurance number"
+      },
+      value: {
+        text: "JK151617B"
+      },
+      actions: {
+        items: [
+           {
+            href: "#",
+            text: "View history",
+            visuallyHiddenText: "contact details"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Sex"
+      },
+      value: {
+        text: "female"
+      },
+      actions: {
+        items: [
+           {
+            href: "#",
+            text: "View maintenance",
+            visuallyHiddenText: "address"
+          },
+           {
+            href: "#",
+            text: "View history",
+            visuallyHiddenText: "contact details"
+          }
+        ]
+      }
+    },
+        {
+      key: {
+      },
+      value: {
+      },
+      actions: {
+        items: [
+           {
+            href: "#",
+            text: "Add personal details",
+            visuallyHiddenText: "contact details"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+  <h2 class="govuk-heading-m">Address</h2>
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Name"
+      },
+      value: {
+              html: "7 Acacia Avenue<br>Gateshead<br>Tyne and Wear<br>NE1 2BA"
+            },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change address view",
+            visuallyHiddenText: "name"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+  <h2 class="govuk-heading-m">Contact</h2>
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Personal mobile"
+      },
+      value: {
+              text: "07761 111111"
+            },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "View maintenance",
+            visuallyHiddenText: "name"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+  <h2 class="govuk-heading-m">Benefits</h2>
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: ""
+      },
+      value: {
+              text: ""
+            }
+    }
+  ]
+}) }}
+
+  <h2 class="govuk-heading-m">Relationships</h2>
+
+{{ govukSummaryList({
+  rows: [
+       {
+      key: {
+        text: "Paye based relationships"
+      },
+      value: {
+        text: ""
+      },
+      actions: {
+        items: [
+          {
+            href: "/appointee/fit-for-live/scenario-1/propose/details",
+            text: "Add an Appointee",
+            visuallyHiddenText: "name"
+          }
+        ]
+      }
+    },
+        {
+      key: {
+        text: "Award based relationships"
+      },
+      value: {
+              text: ""
+     }
+    },
+    {
+      key: {
+        text: "Person based relationships"
+      },
+      value: {
+              text: ""
+     }
+    }
+  ]
+}) }}
+
+  </div>
+    </main>
+    </form>
+
+{% endblock %}

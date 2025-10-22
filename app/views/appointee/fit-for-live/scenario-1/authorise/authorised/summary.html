@@ -1,0 +1,176 @@
+
+{% extends "layout/main.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">Check appointee relationship details</h1>
+
+      <form class="form" method="post" novalidate>
+
+        {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key govuk-!-width-one-half">
+                      Status
+                    </dt>
+                    <dd class="govuk-summary-list__value govuk-!-width-one-half">
+                        {{govukTag({
+                          text: "Authorised"
+                        })}}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      &nbsp;
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Relationship type
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Appointee
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      &nbsp;
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Date of verification
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      9 October 2023
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="#">
+                        Change<span class="govuk-visually-hidden"> date of verification</span>
+                      </a>
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Review date
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      9 October 2031
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="#">
+                        Change<span class="govuk-visually-hidden"> review date</span>
+                      </a>
+                    </dd>
+                  </div>
+                </dl>
+
+<h2 class="govuk-heading-m">Customer</h2>
+
+<dl class="govuk-summary-list">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key govuk-!-width-one-half">
+      Customer name
+    </dt>
+    <dd class="govuk-summary-list__value govuk-!-width-one-half">
+      Jennifer Coles
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      &nbsp;
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Date of birth
+    </dt>
+    <dd class="govuk-summary-list__value">
+      16 January 1969
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      &nbsp;
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Address
+    </dt>
+    <dd class="govuk-summary-list__value">
+      7 Acacia Avenue
+      <br>Gateshead
+      <br> Tyne and Wear
+      <br> NE1 2BA
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      &nbsp;
+    </dd>
+  </div>
+</dl>
+
+
+<h2 class="govuk-heading-m">Appointee</h2>
+
+<dl class="govuk-summary-list">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key govuk-!-width-one-half">
+      Appointee name
+    </dt>
+    <dd class="govuk-summary-list__value govuk-!-width-one-half">
+      James Coles
+    </dd>
+    <dd class="govuk-summary-list__actions">
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Date of birth
+    </dt>
+    <dd class="govuk-summary-list__value">
+      24 March 1993
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      &nbsp;
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Address
+    </dt>
+    <dd class="govuk-summary-list__value">
+      9 Henry Avenue
+      <br>Gateshead
+      <br>Tyne and Wear
+      <br>NE1 1ZX
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      &nbsp;
+    </dd>
+  </div>
+</dl>
+
+      {% from "govuk/components/button/macro.njk" import govukButton %}
+
+      <p>Confirm these details to record the appointee relationship.<p>
+
+      {{ govukButton({
+        text: "Save and confirm"
+      }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
+
+

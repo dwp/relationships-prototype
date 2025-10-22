@@ -1,0 +1,194 @@
+{% extends "layouts/searchlight.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "Beta"
+  },
+  html: 'This is a new service. Your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+}) }}
+
+          <section class="dwp-quick-reference dwp-quick-reference--alternative" aria-label="Case information">
+          <dl class="dwp-quick-reference__block">
+            <div style="display: flex; gap: 1rem; align-items: flex-end;">
+            {{ govukInput({
+              label: {
+                classes: "govuk-label-white",
+                text: "Enter a National Insurance number"
+              },
+              classes: "govuk-input--width-20",
+              id: "search",
+              name: "search"
+            }) }}
+
+            {{ govukButton({
+              text: "Search",
+              classes: "govuk-button",
+              href: "/appointee/fit-for-live/scenario-1/searchlight/searchlight-details"
+            }) }}
+          </div>
+          </dl>
+        </section>
+
+        
+{% endblock %}
+
+{% block content %}
+
+<form class="form" method="post" novalidate>
+<main class="govuk-main-wrapper">
+  <div class="govuk-grid-row">
+
+ <div class="govuk-grid-column-full-width">
+
+   {% set personTraceHtml %}
+    <h2 class="govuk-heading-m">Find someone who has a CIS account</h2>
+
+     <div class="govuk-form-group">
+
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="first-names">
+            First and middle names
+          </label>
+           <input class="govuk-input govuk-date-input__input govuk-input--width-20" id="first-names" name="first-names" type="text" inputmode="text">
+        </div>
+      </div>
+
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="last-name">
+            Last name
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-20" id="last-name" name="last-name" type="text" inputmode="text">
+        </div>
+      </div>
+
+      </div>
+
+      <div class="govuk-form-group">
+
+       <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="date-of-birth">
+            Date of birth
+          </label>
+           <input class="govuk-input govuk-date-input__input govuk-input--width-20" id="dob" name="dob" type="text" inputmode="numeric">
+        </div>
+      </div>
+
+       <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="date-of-death">
+            Date of death
+          </label>
+           <input class="govuk-input govuk-date-input__input govuk-input--width-20" id="do" name="dod" type="text" inputmode="numeric">
+        </div>
+      </div>
+
+      </div>
+
+      <div class="govuk-form-group">
+
+        <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="first-line-address">
+            First line of address
+          </label>
+           <input class="govuk-input govuk-date-input__input govuk-input--width-20" id="address-line" name="address-line" type="text" inputmode="text">
+        </div>
+      </div>
+
+              <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="town">
+            Town
+          </label>
+           <input class="govuk-input govuk-date-input__input govuk-input--width-20" id="town" name="town" type="text" inputmode="text">
+        </div>
+      </div>
+
+      </div>
+
+      <div class="govuk-form-group">
+
+        <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="postcode">
+            Postcode
+          </label>
+           <input class="govuk-input govuk-date-input__input govuk-input--width-20" id="postcode" name="postcode" type="text" inputmode="text">
+        </div>
+      </div>
+
+              <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="contact">
+            Contact number or email
+          </label>
+           <input class="govuk-input govuk-date-input__input govuk-input--width-20" id="contact" name="contact" type="text" inputmode="text">
+        </div>
+      </div>
+
+      </div>
+
+         {{ govukCheckboxes({
+           classes: "inline-checkboxes",
+            name: "sex",
+            items: [
+              {
+                value: "male",
+                text: "Female"
+              },
+              {
+                value: "male",
+                text: "Male"
+              }
+            ]
+          }) }}
+
+        <div class="govuk-button-group">
+      {{ govukButton({
+        text: "Search"
+      }) }}
+
+      {{ govukButton({
+        text: "Clear search",
+        classes: "govuk-button--secondary"
+      }) }}
+    </div>
+
+      </div>
+
+        </div>
+
+      {% endset %}
+
+<div class="govuk-grid-column-full-width">
+        {{ govukTabs({
+      items: [
+        {
+          label: "DWP person trace",
+          id: "dwp-person-trace",
+          panel: {
+            html: personTraceHtml
+          }
+        }
+      ]
+    }) }}
+    </div>
+
+
+       </div>
+
+      </div>
+    </main>
+
+    </form>
+
+{% endblock %}

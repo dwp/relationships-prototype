@@ -1,0 +1,28 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Confirmation page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukPanel({
+        titleText: "Proposed appointee added"
+      }) }}
+
+      <p>
+       You have added [proposed appointee name] as a proposed appointee for Jennifer Coles.
+      </p>
+
+      <p class="govuk-body">
+        <a href="/appointee/fit-for-live/scenario-1/searchlight/searchlight-framework" class="govuk-link govuk-link--no-visited-state">Back to Searchlight</a>
+      </p>
+
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Appointee details
+      </h1>
+
+      <form class="form" method="post" novalidate>
+
+        {{ govukInput({
+          label: {
+            text: "First name"
+          },
+          classes: "govuk-input--width-20",
+          id: "first-name",
+          name: "firstName"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Last name"
+          },
+          classes: "govuk-input--width-20",
+          id: "last-name",
+          name: "lastName"
+        }) }}
+
+        {{ govukDateInput({
+          id: "appointee-dob-field",
+          namePrefix: "appointee-dob",
+          fieldset: {
+            legend: {
+              text: "Date of birth"
+            }
+          }
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Postcode"
+          },
+          classes: "govuk-!-width-one-quarter",
+          id: "appointee-postcode",
+          name: "appointeePostcode"
+        }) }}
+
+        {{ govukButton({
+          text: "Continue",
+          href: "/appointee/fit-for-live/scenario-1/propose/summary"
+        }) }}
+
+        </form>
+
+    </div>
+  </div>
+
+{% endblock %}

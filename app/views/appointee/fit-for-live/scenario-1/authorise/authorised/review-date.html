@@ -1,0 +1,68 @@
+
+{% extends "layout/main.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" method="post" novalidate>
+
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+      {{ govukRadios({
+        idPrefix: "review-date",
+        name: "review-date",
+        fieldset: {
+          legend: {
+            text: "What is the review date for this appointee relationship?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "eight-years",
+            text: "8 years",
+            hint: {
+              text: data['relationship-8-year-date']
+            }
+          },
+          {
+            value: "five-years",
+            text: "5 years",
+            hint: {
+              text: data['relationship-5-year-date']
+            }
+          },
+          {
+            value: "custom",
+            text: "A different date"
+          }
+        ]
+      }) }}
+
+      {% from "govuk/components/button/macro.njk" import govukButton %}
+
+      {{ govukButton({
+        text: "Save and continue"
+      }) }}
+      
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
+

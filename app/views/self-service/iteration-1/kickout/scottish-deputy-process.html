@@ -1,0 +1,34 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" method="post" novalidate>
+
+        <h1 class="govuk-heading-l">You must send the court order to DWP</h1>
+          <p>All court orders must include: 
+          <ul class="govuk-list govuk-list--bullet">
+          <li>The Court of Protection valdiation stamp at the top of the first page. </li>
+          <li>The Court of Protection seal at the bottom of the page</li>
+        </ul>
+      </p>
+
+        </form>
+
+    </div>
+  </div>
+
+{% endblock %}

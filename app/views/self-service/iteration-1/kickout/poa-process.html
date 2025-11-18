@@ -1,0 +1,35 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" method="post" novalidate>
+
+        <h1 class="govuk-heading-l">Send the access code to DWP</h1>
+
+         <p class="govuk-body"> 
+          You need to provide evidence of the customer's Power of Attorney.
+        </p>
+
+          <p>You need to send the access code to DWP if you have one, or the original document.
+         </p>
+         
+        </form>
+
+    </div>
+  </div>
+
+{% endblock %}

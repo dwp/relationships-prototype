@@ -12,8 +12,29 @@
       {{ serviceName }}
     </h1>
 
-   <p><a href="/appointee/fit-for-live/scenario-1/propose/details" class="govuk-link">Appointee journey 2024</a></p>
+   {% from "govuk/components/accordion/macro.njk" import govukAccordion %}
 
+{{ govukAccordion({
+  id: "accordion-default",
+  items: [
+    {
+      heading: {
+        text: "Appointee journey 2024- rebuilt"
+      },
+      content: {
+        html: '<p><a href="/appointee/fit-for-live/scenario-1/searchlight/search" class="govuk-link">Appointee journey 2024</a></p>'
+      }
+    },
+        {
+      heading: {
+        text: "Self service Add an appointee discovery"
+      },
+      content: {
+        html: '<p><a href="/self-service/iteration-1/poa-or-lpa" class="govuk-link">Iteration 1: ACS Team</a></p>'
+      }
+    }
+  ]
+}) }}
        
   </div>
 </div>

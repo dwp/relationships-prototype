@@ -1,3 +1,5 @@
+<div class="govuk-width-container-full">
+  <main class="govuk-main-wrapper">
 {% extends "layouts/searchlight.html" %}
 
 {% block pageTitle %}
@@ -15,21 +17,67 @@
 
 {% from "quick-reference/macro.njk" import dwpQuickReference %}
 
-{{
-        dwpQuickReference({
-            ariaLabel: "Case information",
-            classes: "dwp-quick-reference--alternative",
-            primaryReference: {
-                text: 'Name:',
-                value: 'MS JENNIFER COLES'
-            },
-            secondaryReference: {
-                text: 'JK151617B',
-                textDisplay: true,
-                value: '16 JANUARY 1969'
-            }
-        })
-}}
+    {{
+            dwpQuickReference({
+                ariaLabel: "Case information",
+                classes: "dwp-quick-reference--alternative",
+                primaryReference: {
+                    text: 'Name:',
+                    value: 'MS JENNIFER COLES'
+                },
+                secondaryReference: {
+                    text: 'JK151617B',
+                    textDisplay: true,
+                    value: '16 JANUARY 1969'
+                }
+            })
+    }}
+
+    {{ govukServiceNavigation({
+      navigation: [
+        {
+          href: "#",
+          text: "Personal details"
+        },
+        {
+          href: "Address",
+          text: "Address",
+          active: true
+        },
+        {
+          href: "#",
+          text: "Contact"
+        },
+        {
+          href: "#",
+          text: "Interests"
+        },
+        {
+          href: "#",
+          text: "Benefits"
+        },
+        {
+          href: "#",
+          text: "Relationships"
+        },
+         {
+          href: "#",
+          text: "Income"
+        },
+                {
+          href: "#",
+          text: "Local authority notes"
+        },
+        {
+          href: "#",
+          text: "Local authority data"
+        },
+        {
+          href: "#",
+          text: "Mobility data"
+        }
+      ]
+    }) }}
 
 {% endblock %}
 
@@ -246,3 +294,5 @@
     </form>
 
 {% endblock %}
+  </main>
+</div>

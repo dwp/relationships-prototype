@@ -1,0 +1,60 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">Does the customer need help managing their DWP benefits?</h1>
+      <p class="govuk-body">
+       This could be due to: 
+       <ul class="govuk-list govuk-list--bullet">
+        <li>needing support due to health or circumstance</li>
+        <li>they have a terminal health condition</li>
+        <li>they are a single person</li>
+        <li>they are under 16</li>
+      </ul>
+      </p>
+
+       <form class="form" method="post">
+
+         {{ govukRadios({
+            name: "help-managing-affairs",
+            fieldset: {
+            legend: {
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+            },
+            items: [
+                {
+                value: "yes",
+                text: "Yes"
+                },
+                {
+                value: "no",
+                text: "No"
+                }
+            ]
+            }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        </form>
+
+    </div>
+  </div>
+
+{% endblock %}

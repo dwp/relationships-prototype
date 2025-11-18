@@ -65,10 +65,13 @@
         name: "appointee-postcode-field",
         classes: "govuk-!-width-one-quarter"
       }) }}
+
       {% from "govuk/components/button/macro.njk" import govukButton %}
       {{ govukButton({
-        text: "Continue"
+        text: "Continue",
+        href: "/appointee/fit-for-live/scenario-1/propose/details"
       }) }}
+
       </form>
     </div>
   </div>

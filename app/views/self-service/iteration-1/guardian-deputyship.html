@@ -17,15 +17,15 @@
     <div class="govuk-grid-column-two-thirds">
       <form class="form" method="post">
 
-      <h1 class="govuk-heading-l">Does the customer have a Scottish Guardianship or Deputyship?</h1>
+      <h1 class="govuk-heading-l">Does the claimant have a Scottish Guardianship order or Deputyship?</h1>
 
       {{ govukDetails({
       summaryText: "What is Scottish Guardianship or Deputyship",
-      text: "A Scottish guardianship is appointed by the Sheriff Court, and a Deputyship is appointed by the Court of Protection."
+      text: "A Scottish guardianship order is appointed by the Sheriff Court, and a Deputyship is appointed by the Court of Protection in England and Wales."
     }) }}
 
          {{ govukRadios({
-            name: "guardian-deputy",
+            name: "guardian-deputyship",
             fieldset: {
                 legend: {
                 isPageHeading: true,
@@ -34,12 +34,12 @@
             },
             items: [
                 {
-                value: "yes",
-                text: "Scottish guardianship"
+                value: "deputyship",
+                text: "Yes, they have a Deputyship"
                 },
                 {
-                value: "yes",
-                text: "Deputyship"
+                value: "scottish-guardianship",
+                text: "Yes, they have a Scottish guardianship order"
                 },
                 {
                 value: "no",

@@ -23,9 +23,11 @@ router.post('/self-service/iteration-1/poa-or-lpa', function(request, response) 
 
 router.post('/self-service/iteration-1/guardian-deputyship', function(request, response) {
 
-    var guardianDeputy = request.session.data['guardian-deputy']
-    if (guardianDeputy == "yes"){
-        response.redirect("/self-service/iteration-1/kickout/scottish-deputy-process")
+    var guardianDeputy = request.session.data['guardian-deputyship']
+    if (guardianDeputy == "deputyship"){
+        response.redirect("/self-service/iteration-1/kickout/deputyship-process")
+    } else if (guardianDeputy == "scottish-guardianship"){
+        response.redirect("/self-service/iteration-1/kickout/scottish-process")
     } else if (guardianDeputy == "no"){
         response.redirect("/self-service/iteration-1/assessed-hcp")
     }

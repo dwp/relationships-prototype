@@ -1,4 +1,4 @@
-{% extends "layouts/main.html" %}
+{% extends "layouts/support-claimant.html" %}
 
 {% block pageTitle %}
   Question page template – {{ serviceName }} – GOV.UK Prototype Kit
@@ -22,10 +22,13 @@
             name: "assessed-hcp",
             fieldset: {
                 legend: {
-                text: "Has a healthcare professional assessed the claimant as lacking capacity to make financial decisions?",
+                text: "Has the claimant been assessed as lacking capacity to make financial decisions?",
                 isPageHeading: true,
                 classes: "govuk-fieldset__legend--l"
                 }
+            },
+            hint: {
+              text: "The assessment must have been done by a medical professional such as a GP, or local authority social services"
             },
             items: [
                 {

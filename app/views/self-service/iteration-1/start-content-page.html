@@ -1,0 +1,91 @@
+{% extends "layouts/support-claimant.html" %}
+
+<head>
+  <title>Help a claimant</title>
+</head>
+ 
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "#"
+      },
+      {
+        text: "Section",
+        href: "#"
+      },
+      {
+        text: "Subsection"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Help a claimant
+      </h1>
+
+      <p>Use this tool to help a claimant manage their DWP affairs.</p>
+
+      <p>They could receive help such as:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>get a reasonable adjustment</li>
+        <li>get implicit, or explicit consent or an alternative enquiry</li>
+        <li>get a representative to act on behalf of someone</li>
+      </ul>
+
+      {{ govukButton({
+        text: "Start now",
+        href: "/self-service/iteration-1/individual-org",
+        isStartButton: true
+      }) }}
+
+      <h2 class="govuk-heading-m">
+        Before you start
+      </h2>
+
+      <p>[What to expect from this tool]</p>
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Subsection
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="#">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a href="#" class="govuk-!-font-weight-bold">
+                More <span class="govuk-visually-hidden">in Subsection</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
+  </div>
+
+{% endblock %}

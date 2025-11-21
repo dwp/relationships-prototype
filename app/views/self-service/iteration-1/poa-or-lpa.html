@@ -1,4 +1,4 @@
-{% extends "layouts/main.html" %}
+{% extends "layouts/support-claimant.html" %}
 
 {% block pageTitle %}
   Question page template – {{ serviceName }} – GOV.UK Prototype Kit
@@ -22,23 +22,30 @@
             name: "poa-epa",
             fieldset: {
                 legend: {
-                text: "Does the claimant have an Enduring Power of Attorney or a Lasting Power of Attorney for property and financial matters?",
+                text: "Does the claimant have an enduring power of attorney (EPoA) or a lasting power of attorney (LPA) for property and financial affairs?",
                 isPageHeading: true,
                 classes: "govuk-fieldset__legend--l"
                 }
             },
             items: [
                 {
-                value: "yes-epa",
-                text: "Yes, the customer has an Enduring power of Attorney"
-                },
-                {
                 value: "yes-poa",
-                text: "Yes, the customer has a Lasting Power of Attorney"
+                text: "Yes, the customer has an LPA for property and financial affairs only"
+                },
+                                {
+                value: "yes-epa",
+                text: "Yes, the customer has an EPoA"
                 },
                 {
                 value: "no",
                 text: "No"
+                },
+                 {
+                  divider: "or"
+                },
+               {
+                value: "not-sure",
+                text: "I'm not sure"
                 }
             ]
             }) }}

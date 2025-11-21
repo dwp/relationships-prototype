@@ -1,0 +1,49 @@
+{% extends "layouts/support-claimant.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" method="post">
+
+                 {{ govukRadios({
+                  name: "individual-org",
+                  fieldset: {
+                      legend: {
+                        text: "Who is acting on behalf of the claimant?",
+                      isPageHeading: true,
+                      classes: "govuk-fieldset__legend--l"
+                      }
+                  },
+                  items: [
+                      {
+                      value: "individual",
+                      text: "A single person"
+                      },
+                      {
+                      value: "corp-org",
+                      text: "A a corporate organisation"
+                      }
+                  ]
+                  }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        </form>
+
+    </div>
+  </div>
+
+{% endblock %}

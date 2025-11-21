@@ -9,6 +9,16 @@ const router = govukPrototypeKit.requests.setupRouter()
 
 // Add your routes here
 
+router.post('/self-service/iteration-1/individual-org', function(request, response) {
+
+    var role = request.session.data['individual-org']
+    if (role == "individual"){
+        response.redirect("/self-service/iteration-1/poa-or-lpa")
+    } else if (role == "corp-org"){
+        response.redirect("/self-service/iteration-1/kickout/cab")
+    } 
+})
+
 router.post('/self-service/iteration-1/poa-or-lpa', function(request, response) {
 
     var poaEpa = request.session.data['poa-epa']

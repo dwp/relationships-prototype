@@ -16,15 +16,12 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">Does the claimant need help to manage all aspects of their DWP benefits?</h1>
-      <p class="govuk-body">
-       This willl include attending appointments and managing their finances.
-      </p>
+      <h1 class="govuk-heading-l">Does the claimant need some help to manage their benefits, such as communication adjustments or attending appointments?</h1>
 
        <form class="form" method="post">
 
          {{ govukRadios({
-            name: "help-managing-affairs",
+            name: "help-communicating",
             fieldset: {
             legend: {
               isPageHeading: false,
@@ -33,12 +30,12 @@
             },
             items: [
                 {
-                value: "yes",
-                text: "Yes, all aspects of their claim"
+                value: "adjustments-needed",
+                text: "Yes, some adjustments are needed"
                 },
                 {
-                value: "no",
-                text: "No"
+                value: "none-needed",
+                text: "No adjustments needed"
                 }
             ]
             }) }}

@@ -21,19 +21,23 @@
                   name: "individual-org",
                   fieldset: {
                       legend: {
-                        text: "Who is acting on behalf of the claimant?",
+                        text: "What is your relationship to the claimant?",
                       isPageHeading: true,
                       classes: "govuk-fieldset__legend--l"
                       }
                   },
                   items: [
                       {
-                      value: "individual",
-                      text: "A single person"
+                      value: "personal-rel",
+                      text: "I am a family member of the claimant"
+                      },
+                       {
+                      value: "personal-rel",
+                      text: "I am a friend of the claimant"
                       },
                       {
                       value: "corp-org",
-                      text: "A a corporate organisation"
+                      text: "I work for an organisation that is helping the claimant"
                       }
                   ]
                   }) }}

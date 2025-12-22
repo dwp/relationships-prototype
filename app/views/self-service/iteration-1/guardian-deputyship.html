@@ -17,12 +17,7 @@
     <div class="govuk-grid-column-two-thirds">
       <form class="form" method="post">
 
-      <h1 class="govuk-heading-l">Does the claimant have a Scottish Guardianship order or Deputyship?</h1>
-
-      {{ govukDetails({
-      summaryText: "What is Scottish Guardianship or Deputyship",
-      text: "A Scottish guardianship order is appointed by the Sheriff Court, and a Deputyship is appointed by the Court of Protection in England and Wales."
-    }) }}
+      <h1 class="govuk-heading-l">Does the claimant have a deputyship order or guardianship?</h1>
 
          {{ govukRadios({
             name: "guardian-deputyship",
@@ -35,15 +30,22 @@
             items: [
                 {
                 value: "deputyship",
-                text: "Yes, they have a Deputyship"
+                text: "Yes, they have a deputyship"
                 },
                 {
-                value: "scottish-guardianship",
-                text: "Yes, they have a Scottish guardianship order"
+                value: "guardianship",
+                text: "Yes, they have a guardianship"
                 },
                 {
                 value: "no",
                 text: "No"
+                },
+                {
+                  divider: "or"
+                },
+               {
+                value: "not-sure",
+                text: "I don't know"
                 }
             ]
             }) }}

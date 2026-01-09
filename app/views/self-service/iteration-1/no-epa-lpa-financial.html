@@ -19,7 +19,7 @@
 
 
          {{ govukRadios({
-            name: "poa-epa",
+            name: "no-epa-lpa",
             fieldset: {
                 legend: {
                 text: "Does the claimant have a lasting power of attorney for property and financial affairs?",
@@ -29,18 +29,15 @@
             },
             items: [
                 {
-                value: "yes",
+                value: "yes-lpa",
                 text: "Yes"
                 },
                 {
-                value: "no",
+                value: "no-lpa",
                 text: "No"
                 },
-                 {
-                  divider: "or"
-                },
                {
-                value: "not-sure",
+                value: "unknown",
                 text: "I don't know"
                 }
             ]

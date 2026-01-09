@@ -15,28 +15,30 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+      <form class="form" method="post">
 
-      <h1 class="govuk-heading-l">Does the claimant need  help to communicate with DWP?</h1>
-      <p>Including large print letters or help attending appointments</p>
-
-       <form class="form" method="post">
 
          {{ govukRadios({
-            name: "help-communicating",
+            name: "epa",
             fieldset: {
-            legend: {
-              isPageHeading: false,
-              classes: "govuk-fieldset__legend--m"
-            }
+                legend: {
+                text: "Does the claimant have an enduring power of attorney?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+                }
             },
             items: [
                 {
-                value: "adjustments-needed",
+                value: "yes-epa",
                 text: "Yes"
                 },
                 {
-                value: "none-needed",
+                value: "no",
                 text: "No"
+                },
+               {
+                value: "unknown",
+                text: "I don't know"
                 }
             ]
             }) }}

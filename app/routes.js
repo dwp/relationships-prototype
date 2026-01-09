@@ -13,20 +13,38 @@ router.post('/self-service/iteration-1/individual-org', function(request, respon
 
     var role = request.session.data['individual-org']
     if (role == "personal-rel"){
-        response.redirect("/self-service/iteration-1/poa-or-lpa")
+        response.redirect("/self-service/iteration-1/epa")
     } else if (role == "corp-org"){
         response.redirect("/self-service/iteration-1/kickout/cab")
     } 
 })
 
-router.post('/self-service/iteration-1/poa-or-lpa', function(request, response) {
+router.post('/self-service/iteration-1/epa', function(request, response) {
 
-    var poaEpa = request.session.data['poa-epa']
+    var poaEpa = request.session.data['epa']
     if (poaEpa == "yes-epa"){
-        response.redirect("/self-service/iteration-1/kickout/epa-process")
-    } else if (poaEpa == "yes-poa"){
-        response.redirect("/self-service/iteration-1/kickout/poa-process")
+        response.redirect("/self-service/iteration-1/lpa-financial")
     } else if (poaEpa == "no"){
+        response.redirect("/self-service/iteration-1/no-epa-lpa-financial")
+    }
+})
+
+router.post('/self-service/iteration-1/lpa-financial', function(request, response) {
+
+    var lpa = request.session.data['lpa']
+    if (lpa == "yes-lpa"){
+        response.redirect("/self-service/iteration-1/kickout/lpa-process")
+    } else if (lpa == "no-epa"){
+        response.redirect("/self-service/iteration-1/kickout/epa-process")
+    }
+})
+
+router.post('/self-service/iteration-1/no-epa-lpa-financial', function(request, response) {
+
+    var noEpa = request.session.data['no-epa-lpa']
+    if (noEpa == "yes-lpa"){
+        response.redirect("/self-service/iteration-1/kickout/lpa-process")
+    } else if (noEpa == "no-lpa"){
         response.redirect("/self-service/iteration-1/guardian-deputyship")
     }
 })
@@ -57,7 +75,7 @@ router.post('/self-service/iteration-1/managing-affairs', function(request, resp
 
     var helpManaging = request.session.data['help-managing-affairs']
     if (helpManaging == "yes"){
-        response.redirect("/self-service/iteration-1/need-fulltime-help")
+        response.redirect("/self-service/iteration-1/kickout/implicit-alternate-enq")
     } else if (helpManaging == "no") {
         response.redirect("/self-service/iteration-1/help-communicating")
     }

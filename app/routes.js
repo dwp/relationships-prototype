@@ -100,3 +100,14 @@ router.post('/self-service/iteration-1/help-communicating', function(request, re
         response.redirect("/self-service/iteration-1/kickout/dwp-enquiry")
     }
 })
+
+
+router.post('/appointee/remove/end-date', function(request, response) {
+
+    var endDate = request.session.data['end-date']
+    if (endDate == "today"){
+        response.redirect("/appointee/remove/end-summary")
+    } else if (endDate == "different") {
+        response.redirect("/appointee/remove/end-date-manual")
+    }
+})

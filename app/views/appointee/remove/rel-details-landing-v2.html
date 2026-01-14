@@ -1,0 +1,169 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+
+  {{
+        dwpQuickReference({
+            ariaLabel: "Case information",
+            primaryReference: {
+                text: 'Name:',
+                value: 'Jennifer Coles'
+            },
+            secondaryReference: {
+                text: 'National Insurance number:',
+                textDisplay: true,
+                value: 'QQ 12 34 56 X'
+            }
+        })
+}}
+
+{% endblock %}
+
+{% block content %}
+      <form action="/form-handler" method="post" novalidate>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-l">Relationship details</h1>
+
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Status"
+            },
+            value: {
+              html: "<strong class='govuk-tag govuk-tag'>Active</strong>"
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Relationship type"
+            },
+            value: {
+              text: "Appointee"
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Date of Verification"
+            },
+            value: {
+              text: "22/12/25"
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">Customer</h2>
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Name"
+      },
+      value: {
+        text: "Jennifer Coles"
+      }
+    },
+        {
+      key: {
+        text: "Date of birth"
+      },
+      value: {
+        text: "16 Jan 1959"
+      }
+    },
+    {
+      key: {
+        text: "Address"
+      },
+      value: {
+        html: "7 Acacia Avenue<br>
+        Gateshead<br>
+        Tyne and Wear<br>
+        NE1 2BA"
+      }
+    }
+  ]
+}) }}
+
+<h2 class="govuk-heading-m">Appointee</h2>
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Name"
+      },
+      value: {
+        text: "James Coles"
+      }
+    },
+        {
+      key: {
+        text: "Date of birth"
+      },
+      value: {
+        text: "10 Feb 1992"
+      }
+    },
+    {
+      key: {
+        text: "Address"
+      },
+      value: {
+        html: "7 Acacia Avenue<br>
+        Gateshead<br>
+        Tyne and Wear<br>
+        NE1 2BA"
+      }
+    }
+  ]
+}) }}
+
+
+{{ govukRadios({
+  name: "whereDoYouLive",
+  fieldset: {
+    legend: {
+      text: "Do you want to end this relationship?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Yes"
+    },
+    {
+      value: "no",
+      text: "No"
+    }
+  ]
+}) }}
+
+
+        {{ govukButton({
+          text: "Continue",
+          href: "/appointee/remove/end-reason"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

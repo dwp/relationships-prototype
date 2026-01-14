@@ -16,7 +16,7 @@
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
       <h1 class="govuk-heading-l">
-        Jennifer Coles has an appointee
+        Relationship found
       </h1>
 
       {{ govukSummaryList({
@@ -26,14 +26,14 @@
               text: "Status"
             },
             value: {
-              text: "Active"
+              html: "<strong class='govuk-tag govuk-tag'>Active</strong>"
             },
             actions: {
               items: [
                 {
                   href: "#",
-                  text: "end relationship",
-                  visuallyHiddenText: "Question 1"
+                  text: "Change",
+                  visuallyHiddenText: "name"
                 }
               ]
             }
@@ -70,7 +70,7 @@
               text: "Name"
             },
             value: {
-              text: "Jemnifer Coles"
+              text: "Jennifer Coles"
             }
           }
           ,
@@ -79,14 +79,14 @@
               text: "National insurance number"
             },
             value: {
-              text: "NX3535P"
+              text: "QQ123456A"
             }
           }
         ]
       }) }}
 
          <h2 class="govuk-heading-m">
-        Appo
+        Appointee
       </h2>
 
             {{ govukSummaryList({
@@ -96,7 +96,7 @@
               text: "Name"
             },
             value: {
-              text: "Jemnifer Coles"
+              text: "James Coles"
             }
           }
           ,
@@ -105,22 +105,14 @@
               text: "National insurance number"
             },
             value: {
-              text: "NX3535P"
+              text: "QQ123456B"
             }
           }
         ]
       }) }}
 
 
-      <p>
-        By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.
-      </p>
-
       <form action="/confirmation" method="post" novalidate>
-
-        {{ govukButton({
-          text: "Accept and send"
-        }) }}
 
       </form>
 

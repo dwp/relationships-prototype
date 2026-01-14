@@ -1,0 +1,61 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+
+
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+{{ govukRadios({
+  name: "whereDoYouLive",
+  fieldset: {
+    legend: {
+      text: "Why is the relationship ending?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Death"
+    },
+        {
+      value: "yes",
+      text: "Higher priority"
+    },
+    {
+      value: "no",
+      text: "Relinquishment"
+    },
+        {
+      value: "yes",
+      text: "Financial abuse"
+    }
+  ]
+}) }}
+
+
+      <form action="/confirmation" method="post" novalidate>
+
+        {{ govukButton({
+          text: "Continue",
+          href: "/appointee/remove/end-date"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

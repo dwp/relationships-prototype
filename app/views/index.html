@@ -12,28 +12,35 @@
       {{ serviceName }}
     </h1>
 
-   {% from "govuk/components/accordion/macro.njk" import govukAccordion %}
+    <h2 class="govuk-heading-l">Advanced Customer Support team</h2>
+
+
+    <p class="govuk-body">
+    Proof of concept prototype for the Add an appointee triage tool 2026.
+    </p>
+
+    {{ govukButton({
+      text: "Start now",
+      href: "/self-service/iteration-1/start-content-page",
+      isStartButton: true
+    }) }}
+
+    <p class="govuk-body govuk-!-margin-bottom-9"></p>
+
+    <h2 class="govuk-heading-l">Relationships team</h2>
 
 {{ govukAccordion({
   id: "accordion-default",
   items: [
     {
       heading: {
-        text: "Add an Appointee 2024"
+        text: "Relationships: Add an Appointee 2024"
       },
       content: {
         html: '<p><a href="/appointee/fit-for-live/scenario-1/searchlight/search" class="govuk-link">Add an Appointee journey</a></p>'
       }
     },
-        {
-      heading: {
-        text: "Self service Add an appointee discovery"
-      },
-      content: {
-        html: '<p><a href="/self-service/iteration-1/start-content-page" class="govuk-link">Iteration 1: ACS Team</a></p>'
-      }
-    },
-            {
+     {
       heading: {
         text: "Remove and Appointee"
       },

@@ -15,7 +15,7 @@ router.post('/self-service/iteration-1/individual-org', function(request, respon
     if (role == "personal-rel"){
         response.redirect("/self-service/iteration-1/epa")
     } else if (role == "corp-org"){
-        response.redirect("/self-service/iteration-1/kickout/cab")
+        response.redirect("/self-service/iteration-1/epa")
     } 
 })
 
@@ -67,6 +67,16 @@ router.post('/self-service/iteration-1/assessed-hcp', function(request, response
     if (assessedHcp == "yes"){
         response.redirect("/self-service/iteration-1/appointee-application")
     } else if (assessedHcp == "no") {
+        response.redirect("/self-service/iteration-1/help-everything")
+    }
+})
+
+router.post('/self-service/iteration-1/help-everything', function(request, response) {
+
+    var helpEverything = request.session.data['help-everything']
+    if (helpEverything == "yes-appointee"){
+        response.redirect("/self-service/iteration-1/appointee-application")
+    } else if (helpEverything == "no") {
         response.redirect("/self-service/iteration-1/managing-affairs")
     }
 })

@@ -1,42 +1,19 @@
-{% from "internal-service-header/macro.njk" import dwpHeader %}
-{% from "internal-service-footer/macro.njk" import dwpFooter %}
 {% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
+{% from "govuk/components/header/macro.njk" import govukHeader %}
 {% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
 
-
 {% block header %}
-
-{{
-        dwpHeader({
-            serviceName: "Help a claimant",
-            serviceHref: '/index',
-            container: true
-        })
-}}
+{{ govukHeader({
+  classes: "govuk-header--full-width-border"
+}) }}
 
 {% endblock %}
 
 
 {% block footer %}
-{{
-    dwpFooter({
-        meta: {
-            visuallyHiddenTitle: "About this website",
-            items: [
-            {
-                href: "",
-                text: "Accessibility statement"
-            },
-            {
-                href: "",
-                text: "Privacy"
-            },
-            {
-                href: "/manage-prototype/clear-data",
-                text: "Clear data"
-              }
-            ]
-        }
-    }) 
-}}
+
+{% from "govuk/components/footer/macro.njk" import govukFooter %}
+{{ govukFooter({
+}) }}
 {% endblock %}
+

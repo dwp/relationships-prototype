@@ -1,5 +1,9 @@
 {% extends "layouts/support-claimant.html" %}
 
+{% block pageTitle %}
+  Start page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
 <head>
   <title>Help a claimant</title>
 </head>
@@ -14,13 +18,7 @@
         Help a claimant
       </h1>
 
-      <p>They could receive help such as:</p>
-
-      <ul class="govuk-list govuk-list--bullet">
-        <li>get a reasonable adjustment</li>
-        <li>get implicit, or explicit consent or an alternative enquiry</li>
-        <li>get a representative to act on behalf of someone</li>
-      </ul>
+      <p>[statement of service]</p>
 
       {{ govukButton({
         text: "Start now",

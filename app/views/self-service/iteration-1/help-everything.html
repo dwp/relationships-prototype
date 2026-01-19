@@ -1,0 +1,68 @@
+{% extends "layouts/support-claimant.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+       <form class="form" method="post">
+
+        <h1 class="govuk-heading-l">
+        Managing the claimant's benefits
+      </h1>
+
+      <p class="govuk-body">
+        The claimant might be able to manage their own benefits, but needs help like:
+      </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>adjustments when attending appointments</li>
+        <li>large print letters</li>
+        <li>someone to advocate for them for a short time</li>
+      </ul>
+
+      <p class="govuk-body">
+        The claimant might not be able to manage their own benefits at all, and needs someone to act on their behalf. This includes someone managing their finances and attending their appointments.
+      </p>
+
+
+         {{ govukRadios({
+            name: "help-everything",
+            fieldset: {
+              legend: {
+                text: "Can the claimant manage their benefits on their own?",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+                {
+                value: "yes-appointee",
+                text: "Yes, but they need help with some things"
+                },
+                {
+                value: "no",
+                text: "No"
+                }
+            ]
+            }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        </form>
+
+    </div>
+  </div>
+
+{% endblock %}

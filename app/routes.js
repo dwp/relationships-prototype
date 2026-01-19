@@ -74,10 +74,10 @@ router.post('/self-service/iteration-1/assessed-hcp', function(request, response
 router.post('/self-service/iteration-1/help-everything', function(request, response) {
 
     var helpEverything = request.session.data['help-everything']
-    if (helpEverything == "yes-appointee"){
-        response.redirect("/self-service/iteration-1/appointee-application")
-    } else if (helpEverything == "no") {
+    if (helpEverything == "yes-some"){
         response.redirect("/self-service/iteration-1/managing-affairs")
+    } else if (helpEverything == "no") {
+        response.redirect("/self-service/iteration-1/appointee-application")
     }
 })
 

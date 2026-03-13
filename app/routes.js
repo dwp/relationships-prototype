@@ -7,7 +7,29 @@
 const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 
-// Add your routes here
+// End an Appointee
+
+router.post('/appointee/remove/iteration-1/rel-details-landing-v2', function(request, response) {
+
+    var role = request.session.data['endRelationship']
+    if (role == "yes"){
+        response.redirect("/appointee/remove/iteration-1/end-reason")
+    } else if (role == "no"){
+        response.redirect("/appointee/remove/iteration-1/searchlight/search")
+    } 
+})
+
+router.post('/appointee/remove/iteration-1/end-date', function(request, response) {
+
+    var role = request.session.data['end-date']
+    if (role == "today"){
+        response.redirect("/appointee/remove/iteration-1/end-summary")
+    } else if (role == "different"){
+        response.redirect("/appointee/remove/iteration-1/end-date-manual")
+    } 
+})
+
+// ACS team self service add an appointee
 
 router.post('/self-service/iteration-1/individual-org', function(request, response) {
 

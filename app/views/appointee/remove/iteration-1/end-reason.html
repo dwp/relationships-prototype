@@ -18,7 +18,7 @@
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
 {{ govukRadios({
-  name: "whereDoYouLive",
+  name: "endReason",
   fieldset: {
     legend: {
       text: "Why is the relationship ending?",
@@ -28,19 +28,19 @@
   },
   items: [
     {
-      value: "yes",
+      value: "death",
       text: "Death"
     },
         {
-      value: "yes",
+      value: "higher-priority",
       text: "Higher priority"
     },
     {
-      value: "no",
+      value: "relinquishment",
       text: "Relinquishment"
     },
         {
-      value: "yes",
+      value: "financial-abuse",
       text: "Financial abuse"
     }
   ]
@@ -51,7 +51,7 @@
 
         {{ govukButton({
           text: "Continue",
-          href: "/appointee/remove/end-date"
+          href: "/appointee/remove/iteration-1/end-date"
         }) }}
 
       </form>

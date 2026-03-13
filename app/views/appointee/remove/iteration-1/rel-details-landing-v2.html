@@ -10,25 +10,10 @@
     href: "javascript:window.history.back()"
   }) }}
 
-  {{
-        dwpQuickReference({
-            ariaLabel: "Case information",
-            primaryReference: {
-                text: 'Name:',
-                value: 'Jennifer Coles'
-            },
-            secondaryReference: {
-                text: 'National Insurance number:',
-                textDisplay: true,
-                value: 'QQ 12 34 56 X'
-            }
-        })
-}}
-
 {% endblock %}
 
 {% block content %}
-      <form action="/form-handler" method="post" novalidate>
+      <form action="" method="post" novalidate>
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
@@ -136,7 +121,7 @@
 
 
 {{ govukRadios({
-  name: "whereDoYouLive",
+  name: "endRelationship",
   fieldset: {
     legend: {
       text: "Do you want to end this relationship?",
@@ -151,15 +136,14 @@
     },
     {
       value: "no",
-      text: "No"
+      text: "No, search again"
     }
   ]
 }) }}
 
 
         {{ govukButton({
-          text: "Continue",
-          href: "/appointee/remove/end-reason"
+          text: "Continue"
         }) }}
 
       </form>

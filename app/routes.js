@@ -7,7 +7,7 @@
 const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 
-// End an Appointee
+// End an Appointee V1
 
 router.post('/appointee/remove/iteration-1/rel-details-landing-v2', function(request, response) {
 
@@ -29,6 +29,16 @@ router.post('/appointee/remove/iteration-1/end-date', function(request, response
     } 
 })
 
+// End an Appointee V2
+router.post('/appointee/remove/iteration-2/end-reason', function(request, response) {
+     var role = request.session.data['endReason']
+    if (role == "death"){
+        response.redirect("/appointee/remove/iteration-2/end-date")
+    } else if (role == "higher-priority"){
+        response.redirect("/appointee/remove/iteration-2/end-date-manual")
+    } 
+})
+// --------------------------------------------------------------
 // ACS team self service add an appointee
 
 router.post('/self-service/iteration-1/individual-org', function(request, response) {

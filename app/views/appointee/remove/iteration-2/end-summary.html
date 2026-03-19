@@ -1,0 +1,147 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-l">Confirm relationship end</h1>
+
+      <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Relationship type
+            </dt>
+            <dd class="govuk-summary-list__value">
+          Appointee
+            </dd>
+              <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              End reason
+            </dt>
+            <dd class="govuk-summary-list__value">
+          Relinquishment
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="/appointee/remove/end-reason">Change<span class="govuk-visually-hidden"> name</span></a>
+            </dd>
+          </div>
+                    <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              End date
+            </dt>
+            <dd class="govuk-summary-list__value">
+          05/01/2026
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="/appointee/remove/end-date-manual">Change<span class="govuk-visually-hidden"> name</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date of verification
+            </dt>
+            <dd class="govuk-summary-list__value">
+           29/01/26
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+        </dl>
+
+      <h2 class="govuk-heading-m">Customer</h2>
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Name"
+      },
+      value: {
+        text: "Jennifer Coles"
+      }
+    },
+        {
+      key: {
+        text: "Date of birth"
+      },
+      value: {
+        text: "16 Jan 1959"
+      }
+    },
+    {
+      key: {
+        text: "Address"
+      },
+      value: {
+        html: "7 Acacia Avenue<br>
+        Gateshead<br>
+        Tyne and Wear<br>
+        NE1 2BA"
+      }
+    }
+  ]
+}) }}
+
+<h2 class="govuk-heading-m">Appointee</h2>
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Name"
+      },
+      value: {
+        text: "James Coles"
+      }
+    },
+        {
+      key: {
+        text: "Date of birth"
+      },
+      value: {
+        text: "10 Feb 1992"
+      }
+    },
+    {
+      key: {
+        text: "Address"
+      },
+      value: {
+        html: "7 Acacia Avenue<br>
+        Gateshead<br>
+        Tyne and Wear<br>
+        NE1 2BA"
+      }
+    }
+  ]
+}) }}
+
+<p class="govuk-body">Confirm that James Coles will no longer act as an Appointee for Jennifer Coles.</p>
+
+
+
+        {{ govukButton({
+          text: "Save and confirm",
+          href: "/appointee/remove/iteration-1/end-confirmation"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

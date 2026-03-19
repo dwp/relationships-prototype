@@ -1,0 +1,76 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+
+  {{
+        dwpQuickReference({
+            ariaLabel: "Case information",
+            primaryReference: {
+                text: 'Name:',
+                value: 'Jennifer Coles'
+            },
+            secondaryReference: {
+                text: 'National Insurance number:',
+                textDisplay: true,
+                value: 'QQ 12 34 56 X'
+            }
+        })
+}}
+
+
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+{{ govukRadios({
+  name: "endReason",
+  fieldset: {
+    legend: {
+      text: "Why is the relationship ending?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  items: [
+    {
+      value: "death",
+      text: "Appointee has died"
+    },
+        {
+      value: "higher-priority",
+      text: "Appointee has been superseded by legal authority"
+    },
+    {
+      value: "relinquishment",
+      text: "Appointee can no longer act"
+    },
+    {
+      value: "revoked",
+      text: "Appointee is no longer appropriate"
+    }
+  ]
+}) }}
+
+
+      <form action="/confirmation" method="post" novalidate>
+
+        {{ govukButton({
+          text: "Continue",
+          href: "/appointee/remove/iteration-1/end-date"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

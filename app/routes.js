@@ -31,13 +31,18 @@ router.post('/appointee/remove/iteration-1/end-date', function(request, response
 
 // End an Appointee V2
 router.post('/appointee/remove/iteration-2/end-reason', function(request, response) {
-     var role = request.session.data['endReason']
-    if (role == "death"){
-        response.redirect("/appointee/remove/iteration-2/end-date")
-    } else if (role == "higher-priority"){
+     var role = request.session.data['end-reason']
+    if (role == "Appointee has died"){
         response.redirect("/appointee/remove/iteration-2/end-date-manual")
+    } else if (role == "Customer has a legal authority"){
+        response.redirect("/appointee/remove/iteration-2/end-summary")
+    } else if (role == "Appointee has been relinquished"){
+        response.redirect("/appointee/remove/iteration-2/end-summary")
+    } else if (role == "Appointee has been revoked"){
+        response.redirect("/appointee/remove/iteration-2/end-summary")
     } 
 })
+
 // --------------------------------------------------------------
 // ACS team self service add an appointee
 

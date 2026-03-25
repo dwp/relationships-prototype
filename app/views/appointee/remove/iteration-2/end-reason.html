@@ -5,25 +5,6 @@
 {% endblock %}
 
 {% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back",
-    href: "javascript:window.history.back()"
-  }) }}
-
-  {{
-        dwpQuickReference({
-            ariaLabel: "Case information",
-            primaryReference: {
-                text: 'Name:',
-                value: 'Jennifer Coles'
-            },
-            secondaryReference: {
-                text: 'National Insurance number:',
-                textDisplay: true,
-                value: 'QQ 12 34 56 X'
-            }
-        })
-}}
 
 
 {% endblock %}
@@ -32,8 +13,9 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
+      <form class="form" method="post">
 {{ govukRadios({
-  name: "endReason",
+  name: "end-reason",
   fieldset: {
     legend: {
       text: "Why is the relationship ending?",
@@ -43,30 +25,27 @@
   },
   items: [
     {
-      value: "death",
+      value: "Appointee has died",
       text: "Appointee has died"
     },
         {
-      value: "higher-priority",
-      text: "Appointee has been superseded by legal authority"
+      value: "Customer has a legal authority",
+      text: "Customer has a legal authority"
     },
     {
-      value: "relinquishment",
-      text: "Appointee can no longer act"
+      value: "Appointee has been relinquished",
+      text: "Appointee has been relinquished"
     },
     {
-      value: "revoked",
-      text: "Appointee is no longer appropriate"
+      value: "Appointee has been revoked",
+      text: "Appointee has been revoked"
     }
   ]
 }) }}
 
 
-      <form action="/confirmation" method="post" novalidate>
-
         {{ govukButton({
-          text: "Continue",
-          href: "/appointee/remove/iteration-1/end-date"
+          text: "Continue"
         }) }}
 
       </form>

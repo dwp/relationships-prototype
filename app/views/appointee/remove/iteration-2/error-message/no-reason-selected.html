@@ -1,0 +1,69 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <form class="form" method="post">
+
+        {{ govukErrorSummary({
+  titleText: "There is a problem",
+  errorList: [
+    {
+      text: "Select an end reason",
+      href: "#full-name-input"
+    }
+  ]
+}) }}
+
+{{ govukRadios({
+  name: "end-reason",
+  fieldset: {
+    legend: {
+      text: "Why is the relationship ending?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  items: [
+    {
+      value: "Appointee has died",
+      text: "Appointee has died"
+    },
+        {
+      value: "Customer has a legal authority",
+      text: "Customer has a legal authority"
+    },
+    {
+      value: "Appointee has been relinquished",
+      text: "Appointee has been relinquished"
+    },
+    {
+      value: "Appointee has been revoked",
+      text: "Appointee has been revoked"
+    }
+  ],
+  errorMessage: {
+    text: "Select an end reason"
+  }
+}) }}
+
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

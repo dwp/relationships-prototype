@@ -1,0 +1,60 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+
+
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <form class="form" method="post">
+
+    {{ govukErrorSummary({
+      titleText: "There is a problem",
+      errorList: [
+        {
+          text: "Enter the end date of the relationship",
+          href: "#date-ended-day"
+        }
+      ]
+    }) }}
+
+  {{ govukDateInput({
+    id: "date-ended",
+    namePrefix: "date-ended",
+    fieldset: {
+      legend: {
+        text: "When did the appointee die?",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+    hint: {
+      text: "For example, 27 3 2024"
+    },
+     errorMessage: {
+            text: "Enter the end date of the relationship"
+          }
+  }) }}
+
+
+        {{ govukButton({
+          text: "Continue",
+          href: "/appointee/remove/iteration-2/end-summary-died"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

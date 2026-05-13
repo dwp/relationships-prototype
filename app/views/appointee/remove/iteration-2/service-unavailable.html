@@ -1,0 +1,28 @@
+{% extends "layouts/main.html" %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-l">Sorry, there is a problem with the service</h1>
+
+      <p class="govuk-body">Try again later.</p>
+      <p class="govuk-body">We have not saved the appointee relationship.</p>
+
+      <p class="govuk-body"><a class="govuk-link" href="/appointee/remove/iteration-2/iteration-2-index">
+        Go back to Later Life</a> to start again.
+      </p>
+      
+
+      <form action="/dp-details" method="post" novalidate>
+
+        <input type="hidden" name="answers-checked" value="true">
+
+
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Home" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+  {% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+
+      <h1 class="govuk-heading-l">Personal acting body</h1>
+
+
+        <h2 class="govuk-heading-m">Add a PAB</h2>
+
+         <p><a href="/pab/add-pab/relationship-type" class="govuk-link">Version 1</a></p>
+
+             <h2 class="govuk-heading-m">Remove a PAB</h2>
+
+         <p><a href="/pab/remove-pab/end-date" class="govuk-link">Version 1</a></p>
+
+  </div>
+</div>
+
+{% endblock %}

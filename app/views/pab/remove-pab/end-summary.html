@@ -1,0 +1,107 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+
+        {{
+        dwpQuickReference({
+            ariaLabel: "personal-details",
+            primaryReference: {
+                text: 'Name:',
+                value: 'Erik Erikson'
+            },
+            secondaryReference: {
+                text: 'National Insurance number:',
+                value: 'QQ 12 34 56 A'
+            }
+        })
+}}
+
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-l">Check relationship end details</h1>
+
+      <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Relationship type
+            </dt>
+            <dd class="govuk-summary-list__value">
+          Power of Attorney
+            </dd>
+              <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+            <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              End date
+            </dt>
+            <dd class="govuk-summary-list__value">
+          5 Jan 2026
+            </dd>
+             <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="/pab/remove-pab/end-date-manual">Change<span class="govuk-visually-hidden"> end date</span></a>
+            </dd>
+          </div>
+        </dl>
+
+
+<h2 class="govuk-heading-m">Power of Attorney details</h2>
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Name"
+      },
+      value: {
+        text: "John Erikson"
+      }
+    },
+        {
+      key: {
+        text: "Date of birth"
+      },
+      value: {
+        text: "10 Feb 1975"
+      }
+    },
+    {
+      key: {
+        text: "Address"
+      },
+      value: {
+        html: "2-3 S Parade<br>
+        Bath<br>
+        Avon<br>
+        BA2 4AA"
+      }
+    }
+  ]
+}) }}
+
+<p class="govuk-body">Confirm that John Erikson will no longer be the Power of Attorney for Erik Erikson.</p>
+
+
+
+        {{ govukButton({
+          text: "Confirm",
+          href: "/pab/remove-pab/end-confirmation"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

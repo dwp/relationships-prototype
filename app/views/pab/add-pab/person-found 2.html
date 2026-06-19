@@ -1,0 +1,60 @@
+{% extends "layouts/main.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-l">Claim found</h1>
+
+      <ul class="govuk-list">
+  <li>
+    <p class="govuk-body">Name: <b>Patrick Jones</b></p>
+  </li>
+  <li>
+    <p class="govuk-body">National Insurance number: <b>NC 12 36 56 X</b></p>
+  </li>
+   <p class="govuk-body ">Date of birth: <b>5 January 1960</b></p>
+</ul>
+
+      <div class="govuk-!-padding-bottom-6"></div>
+          <form method="post" novalidate>
+
+          {{ govukRadios({
+            name: "correctPerson",
+            fieldset: {
+              legend: {
+                text: "Is this the right person?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Yes"
+              },
+              {
+                value: "no",
+                text: "No"
+              }
+            ]
+          }) }}
+
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

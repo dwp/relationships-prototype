@@ -1,0 +1,58 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+<main class="govuk-main-wrapper" id="main-content" role="main">
+  {% block content %}
+  <div class="govuk-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+       <form class="form" method="post">
+          {{ govukRadios({
+            name: "end-reason",
+            fieldset: {
+              legend: {
+                text: "Why is the relationship ending?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+              {
+                value: "Appointee has died",
+                text: "Appointee has died"
+              },
+                  {
+                value: "Legal authority in place",
+                text: "Legal authority in place"
+              },
+              {
+                value: "Appointee has ended the relationship",
+                text: "Appointee has ended the relationship"
+              },
+              {
+                value: "Unacceptable behaviour",
+                text: "Unacceptable behaviour"
+              },
+              {
+                value: "Claimant can act for themselves",
+                text: "Claimant can act for themselves"
+              }
+            ]
+          }) }}
+
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+       </form>
+       
+      </div>
+   </div>
+  </div>
+  {% endblock %}
+</main>
+
+

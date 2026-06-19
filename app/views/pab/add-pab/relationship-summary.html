@@ -1,0 +1,121 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+  
+    {{
+        dwpQuickReference({
+            ariaLabel: "personal-details",
+            primaryReference: {
+                text: 'Name:',
+                value: 'Erik Erikson'
+            },
+            secondaryReference: {
+                text: 'National Insurance number:',
+                value: 'QQ 12 34 56 A'
+            }
+        })
+}}
+
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-l">Check relationship details</h1>
+
+        {{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Relationship type"
+      },
+      value: {
+        text: "Power of Attorney"
+      },
+      actions: {
+      items: [
+      {
+         href: "/pab/add-pab/relationship-type",
+        text: "Change",
+        visuallyHiddenText: "start-date"
+         }
+       ]
+     }
+    },
+        {
+      key: {
+        text: "Start date"
+      },
+      value: {
+        text: "5 June 2026"
+      },
+    actions: {
+      items: [
+      {
+         href: "/pab/add-pab/start-date-manual",
+        text: "Change",
+        visuallyHiddenText: "start-date"
+         }
+       ]
+     }
+    }
+  ]
+}) }}
+
+<h2 class="govuk-heading-m">Power of Attorney details</h2>
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Name"
+      },
+      value: {
+        text: "John Erikson"
+      }
+    },
+        {
+      key: {
+        text: "Date of birth"
+      },
+      value: {
+        text: "10 Feb 1975"
+      }
+    },
+    {
+      key: {
+        text: "Address"
+      },
+      value: {
+        html: "2-3 S Parade<br>
+        Bath<br>
+        Avon<br>
+        BA2 4AA"
+      }
+    }
+  ]
+}) }}
+
+<p class="govuk-body">Confirm that John Erikson is the Power of Attorney for Erik Erikson.</p>
+
+
+
+        {{ govukButton({
+          text: "Confirm",
+          href: "/pab/add-pab/confirmation"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

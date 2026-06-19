@@ -9,39 +9,124 @@ const router = govukPrototypeKit.requests.setupRouter()
 
 // End an Appointee V1
 
-router.post('/appointee/remove/iteration-1/rel-details-landing-v2', function(request, response) {
+router.post('/remove-appointee/iteration-1/rel-details-landing-v2', function(request, response) {
 
     var role = request.session.data['endRelationship']
     if (role == "yes"){
-        response.redirect("/appointee/remove/iteration-1/end-reason")
+        response.redirect("/remove-appointee/iteration-1/end-reason")
     } else if (role == "no"){
-        response.redirect("/appointee/remove/iteration-1/searchlight/search")
+        response.redirect("/remove-appointee/iteration-1/searchlight/search")
     } 
 })
 
-router.post('/appointee/remove/iteration-1/end-date', function(request, response) {
+router.post('/remove-appointee/iteration-1/end-reason', function(request, response) {
+
+    var role = request.session.data['endReason']
+    if (role == "death"){
+        response.redirect("/remove-appointee/iteration-1/end-date")
+    } else if (role == "higher-priority"){
+        response.redirect("/remove-appointee/iteration-1/end-summary")
+    } else if (role == "relinquishment"){
+        response.redirect("/remove-appointee/iteration-1/end-summary")
+    } else if (role == "financial abuse"){
+        response.redirect("/remove-appointee/iteration-1/end-summary")
+    } 
+})
+
+router.post('/remove-appointee/iteration-1/end-date', function(request, response) {
 
     var role = request.session.data['end-date']
     if (role == "today"){
-        response.redirect("/appointee/remove/iteration-1/end-summary")
+        response.redirect("/remove-appointee/iteration-1/end-summary")
     } else if (role == "different"){
-        response.redirect("/appointee/remove/iteration-1/end-date-manual")
+        response.redirect("/remove-appointee/iteration-1/end-date-manual")
     } 
 })
 
 // End an Appointee V2
-router.post('/appointee/remove/iteration-2/end-reason', function(request, response) {
+router.post('/remove-appointee/iteration-2/end-reason', function(request, response) {
      var role = request.session.data['end-reason']
     if (role == "Appointee has died"){
-        response.redirect("/appointee/remove/iteration-2/end-date-manual")
+        response.redirect("/remove-appointee/iteration-2/end-date-manual")
     } else if (role == "Customer has a legal authority"){
-        response.redirect("/appointee/remove/iteration-2/end-summary")
+        response.redirect("/remove-appointee/iteration-2/end-summary")
     } else if (role == "Appointee has been relinquished"){
-        response.redirect("/appointee/remove/iteration-2/end-summary")
+        response.redirect("/remove-appointee/iteration-2/end-summary")
     } else if (role == "Appointee has been revoked"){
-        response.redirect("/appointee/remove/iteration-2/end-summary")
+        response.redirect("/remove-appointee/iteration-2/end-summary")
     } 
 })
+
+// End an Appointee V3
+router.post('/remove-appointee/iteration-3/end-reason', function(request, response) {
+     var role = request.session.data['end-reason']
+    if (role == "Appointee has died"){
+        response.redirect("/remove-appointee/iteration-3/end-date-death")
+    } else if (role == "Legal authority in place"){
+        response.redirect("/remove-appointee/iteration-3/end-date-la")
+    } else if (role == "Appointee has ended the relationship"){
+        response.redirect("/remove-appointee/iteration-3/end-date-apt-ended")
+    } else if (role == "Unacceptable behaviour"){
+        response.redirect("/remove-appointee/iteration-3/end-date-behaviour")
+    } else if (role == "Claimant can act for themselves"){
+        response.redirect("/remove-appointee/iteration-3/end-date-can-act")
+    } 
+})
+
+router.post('/remove-appointee/iteration-3/end-date', function(request, response) {
+
+    var role = request.session.data['end-date']
+    if (role == "today"){
+        response.redirect("remove-appointee/iteration-3/end-summary")
+    } else if (role == "different-day"){
+        response.redirect("/remove-appointee/iteration-3/end-date-manual")
+    } 
+})
+
+router.post('/remove-appointee/iteration-3/end-date-death', function(request, response) {
+
+    var role = request.session.data['end-date-death']
+    if (role == "today"){
+        response.redirect("/remove-appointee/iteration-3/end-summary")
+    } else if (role == "different-day"){
+        response.redirect("/remove-appointee/iteration-3/end-date-death-manual")
+    } 
+})
+
+// --------------------------------------------------------------
+// Add a PAB - generic
+router.post('/pab/add-pab/person-found', function(request, response) {
+
+    var role = request.session.data['correctPerson']
+    if (role == "yes"){
+        response.redirect("/pab/add-pab/start-date")
+    } else if (role == "no"){
+        response.redirect("/pab/add-pab/pab-details")
+    } 
+})
+
+router.post('/pab/add-pab/start-date', function(request, response) {
+
+    var role = request.session.data['start-date']
+    if (role == "today"){
+        response.redirect("/pab/add-pab/relationship-summary")
+    } else if (role == "different-day"){
+        response.redirect("/pab/add-pab/start-date-manual")
+    } 
+})
+
+// Remove a PAB - generic
+router.post('/pab/remove-pab/end-date', function(request, response) {
+
+    var role = request.session.data['end-date']
+    if (role == "today"){
+        response.redirect("/pab/remove-pab/end-summary")
+    } else if (role == "different-day"){
+        response.redirect("/pab/remove-pab/end-date-manual")
+    } 
+})
+
+
 
 // --------------------------------------------------------------
 // ACS team self service add an appointee

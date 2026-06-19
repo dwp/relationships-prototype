@@ -1,38 +1,41 @@
+
+{% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
 {% from "internal-service-header/macro.njk" import dwpHeader %}
 {% from "internal-service-footer/macro.njk" import dwpFooter %}
-{% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
-{% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
-
 
 {% block header %}
-
-{{
-        dwpHeader({
-            serviceName: "Relationships service",
-            serviceHref: '/index',
-            container: true
-        })
-}}
-
+  {{
+    dwpHeader({
+      serviceName: "Relationships service",
+      serviceHref: "/index",
+      container: true
+    })
+  }}
 {% endblock %}
 
 
+<main id="main-content" role="main">
+  {% block content %}{% endblock %}
+</main>
+
+
+
 {% block footer %}
-{{
+  {{
     dwpFooter({
-        meta: {
-            visuallyHiddenTitle: "About this website",
-            items: [
-            {
-                href: "",
-                text: "Accessibility statement"
-            },
-            {
-                href: "",
-                text: "Privacy"
-            }
-            ]
-        }
-    }) 
-}}
+      meta: {
+        visuallyHiddenTitle: "footer links",
+        items: [
+{
+                    href: "#1",
+                    text: "Accessibility statement"
+                },
+                {
+                    href: "#2",
+                    text: "Privacy"
+                }
+        ]
+      }
+    })
+  }}
 {% endblock %}

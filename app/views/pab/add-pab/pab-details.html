@@ -1,0 +1,103 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+
+  {{
+        dwpQuickReference({
+            ariaLabel: "personal-details",
+            primaryReference: {
+                text: 'Name:',
+                value: 'Erik Erikson'
+            },
+            secondaryReference: {
+                text: 'National Insurance number:',
+                value: 'QQ 12 34 56 A'
+            }
+        })
+}}
+
+{% endblock %}
+
+
+{% block content %}
+  <div class="govuk-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+       <form class="form" method="post">
+
+        {% call govukFieldset({
+        legend: {
+          text: "Find [PAB]",
+          classes: "govuk-fieldset__legend--l",
+          isPageHeading: true
+        }
+      }) %}
+
+           {{ govukInput({
+            label: {
+              text: "First name"
+            },
+            classes: "govuk-!-width-two-thirds",
+            id: "name",
+            name: "name",
+            autocomplete: "address-line1"
+          }) }}
+
+          {{ govukInput({
+            label: {
+              text: "Last name"
+            },
+            classes: "govuk-!-width-two-thirds",
+            id: "last-name",
+            name: "last-name",
+            autocomplete: "address-line2"
+          }) }}
+
+          {{ govukDateInput({
+            id: "dob",
+            namePrefix: "dob",
+            fieldset: {
+              legend: {
+                text: "Date of birth",
+                isPageHeading: true
+              }
+            },
+            hint: {
+              text: "For example, 27 3 2024"
+            }
+          }) }}
+
+          {{ govukInput({
+            label: {
+              text: "Postcode"
+            },
+            classes: "govuk-input--width-10",
+            id: "address-postcode",
+            name: "addressPostcode",
+            autocomplete: "postal-code"
+          }) }}
+
+           {% endcall %}
+
+          {{ govukButton({
+            text: "Continue",
+            href: "/pab/add-pab/person-found"
+          }) }}
+       </form>
+       
+      </div>
+   </div>
+  </div>
+
+  {% endblock %}
+
+

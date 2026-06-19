@@ -1,0 +1,66 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Home" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+
+      <h1 class="govuk-heading-l">Remove an Appointee</h1>
+
+
+        <h2 class="govuk-heading-m">V3- May 2026</h2>
+
+      {{ govukButton({
+        text: "Prototype",
+        href: "/remove-appointee/iteration-3/end-reason",
+        isStartButton: true
+      }) }}
+
+      <p><a href="/remove-appointee/iteration-2/end-reason" class="govuk-link">V2- April 2026</a></p>
+
+      <p><a href="/remove-appointee/iteration-1/rel-details-landing-v2" class="govuk-link">V1- December 2025</a></p>
+
+      <h3 class="govuk-heading-l govuk-!-margin-top-9">Error scenarios</h3>
+
+      {{ govukAccordion({
+        id: "accordion-default",
+        items: [
+          {
+            heading: {
+              text: "Error screens"
+            },
+            content: {
+              html: '<p><a href="/remove-appointee/error-messages/no-reason-selected" class="govuk-link">No reason selected</a></p>
+    
+       <h3 class="govuk-heading-s">End date</h3>
+      <p><a href="/remove-appointee/error-messages/day-not-entered" class="govuk-link">Day not entered</a></p>
+      <p><a href="/remove-appointee/error-messages/month-not-entered" class="govuk-link">Month not entered</a></p>
+      <p><a href="/remove-appointee/error-messages/year-not-entered" class="govuk-link">Year not entered</a></p>
+      <p><a href="/remove-appointee/error-messages/invalid-date" class="govuk-link">Enter a valid date</a></p>
+      <p><a href="/remove-appointee/error-messages/year-4-digits" class="govuk-link">Year must include 4 numbers</a></p>
+      <p><a href="/remove-appointee/error-messages/no-date-entered" class="govuk-link">All date fields are empty</a></p>
+      <p><a href="/remove-appointee/error-messages/end-date-in-future" class="govuk-link">End date is in the future</a></p>
+
+      <p><a href="/remove-appointee/error-messages/multiple-error-dates" class="govuk-link">Multiple errors for dates</a></p>'
+            }
+          },
+                    {
+            heading: {
+              text: "Service errors"
+            },
+            content: {
+              html: ' <p><a href="/remove-appointee/service-unavailable" class="govuk-link">Problem with service</a></p>'
+            }
+          }
+        ]
+      }) }}
+     
+
+  </div>
+</div>
+
+{% endblock %}

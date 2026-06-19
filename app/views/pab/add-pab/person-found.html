@@ -1,0 +1,100 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+
+    {{
+        dwpQuickReference({
+            ariaLabel: "personal-details",
+            primaryReference: {
+                text: 'Name:',
+                value: 'Erik Erikson'
+            },
+            secondaryReference: {
+                text: 'National Insurance number:',
+                value: 'QQ 12 34 56 A'
+            }
+        })
+}}
+
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-l">Person found</h1>
+
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Name"
+      },
+      value: {
+        text: "John Erikson"
+      }
+    },
+        {
+      key: {
+        text: "Date of birth"
+      },
+      value: {
+        text: "10 Feb 1975"
+      }
+    },
+    {
+      key: {
+        text: "Address"
+      },
+      value: {
+        html: "2-3 S Parade<br>
+        Bath<br>
+        Avon<br>
+        BA2 4AA"
+      }
+    }
+  ]
+}) }}
+
+<form class="form" method="post">
+
+          {{ govukRadios({
+            name: "correctPerson",
+            fieldset: {
+              legend: {
+                text: "Is this person you want to be the Power of Attorney?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Yes"
+              },
+              {
+                value: "no",
+                text: "No"
+              }
+            ]
+          }) }}
+
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

@@ -22,25 +22,30 @@
             },
             items: [
               {
-                value: "Appointee has died",
-                text: "Appointee has died"
-              },
-                  {
-                value: "Legal authority in place",
-                text: "Legal authority in place"
+                value: "appointee-died",
+                text: "Appointee has died",
+                checked: checked("end-reason", "appointee-died")
+              },   
+              {
+                value: "legal-authority",
+                text: "Legal authority in place",
+                checked: checked("end-reason", "legal-authority")
               },
               {
-                value: "Appointee has ended the relationship",
-                text: "Appointee has ended the relationship"
+                value: "ended-relationship",
+                text: "Appointee has ended the relationship",
+                checked: checked("end-reason", "ended-relationship")
+              },                  
+              {
+              value: "unacceptable-behaviour",
+              text: "Unacceptable behaviour",
+              checked: checked("end-reason", "unacceptable-behaviour")
               },
               {
-                value: "Unacceptable behaviour",
-                text: "Unacceptable behaviour"
-              },
-              {
-                value: "Claimant can act for themselves",
-                text: "Claimant can act for themselves"
-              }
+              value: "can-act-self",
+              text: "Claimant can act for themselves",
+              checked: checked("end-reason", "can-act-self")
+            }
             ]
           }) }}
 

@@ -10,33 +10,33 @@
     href: "javascript:window.history.back()"
   }) }}
 
+
 {% endblock %}
 
 {% block content %}
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
 
-      <form class="form" method="post">
+      <form class="form" method="post" action="/remove-appointee/iteration-3/rel-end-date">
 
         {{ govukRadios({
         name: "end-date",
         fieldset: {
           legend: {
-            text: "When did you receive this information?",
+            text: "When did the relationship end?",
             classes: "govuk-fieldset__legend--l"
           }
-        },
-         hint: {
-          text: "Enter the date the decision was made or the date on the BF58"
         },
         items: [
           {
             value: "today",
-            text: "Today"
+            text: "Today",
+            checked: checked("end-date", "today")
           },
           {
             value: "different-day",
-            text: "A different day"
+            text: "A different day",
+            checked: checked("end-date", "different-day")
           }
         ]
         }) }}

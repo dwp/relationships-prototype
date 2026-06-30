@@ -17,13 +17,16 @@
       }) }}
 
       <p class="govuk-body">
-        You have ended James Coles acting as an appointee for Jennifer Coles.
-      </p>
-
-            <p class="govuk-body"><a class="govuk-link" href="/appointee/remove/iteration-2/iteration-2-index">
-        Go back to Later Life</a> to start again.
+        John Smith is no longer the appointee for Erik Smith.
       </p>
       
+      <div class="govuk-!-padding-bottom-6"></div>
+
+      {{ govukButton({
+        text: "Restart prototype",
+        classes: "govuk-button--secondary",
+        href: "/remove-appointee/iteration-3/LL-pab-jump-off"
+      }) }}
     </div>
   </div>
 {% endblock %}

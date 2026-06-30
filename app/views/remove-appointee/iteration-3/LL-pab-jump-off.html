@@ -1,0 +1,111 @@
+{% extends "layouts/main-LL-template.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+
+<div class="govuk-!-margin-top-3"></div>
+
+  {{
+        dwpQuickReference({
+            ariaLabel: "personal-details",
+            primaryReference: {
+                text: 'Name:',
+                value: 'Erik Smith'
+            },
+            secondaryReference: {
+                text: 'National Insurance number:',
+                value: 'QQ 12 34 56 A'
+            }
+        })
+}}
+
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+       <form class="form" method="post">
+
+          {{ govukBackLink({
+          text: "Back",
+          href: "javascript:window.history.back()"
+          }) }}
+      
+          <h1 class="govuk-heading-l">Representative details</h1>
+
+           {{ govukSummaryList({
+            card: {
+              title: {
+                text: "John Smith"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Change"
+                  },
+                  {
+                    href: "/remove-appointee/iteration-3/end-reason",
+                    text: "Remove"
+                  }
+                ]
+              }
+            },
+            rows: [
+              {
+                key: {
+                  text: "Name"
+                },
+                value: {
+                  html: "John Smith"
+                }
+              },
+              {
+                key: {
+                  text: "Representative details"
+                },
+                value: {
+                  html: "Appointee"
+                }
+              },
+              {
+                key: {
+                  text: "Date of birth"
+                },
+                value: {
+                  html: "28 June 1980"
+                }
+              },
+              {
+                key: {
+                  text: "Mobile number"
+                },
+                value: {
+                  html: "07234 123 456"
+                }
+              },
+               {
+                key: {
+                  text: "Address"
+                },
+                value: {
+                  html: "14 West Avenue<br>Leeds</br>LS1 1TN"
+                }
+              }
+            ]
+          }) }}
+
+       </form>
+       
+      </div>
+   </div>
+  </div>
+  {% endblock %}
+
+

@@ -1,0 +1,53 @@
+
+{% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
+{% from "internal-service-header/macro.njk" import dwpHeader %}
+{% from "internal-service-footer/macro.njk" import dwpFooter %}
+
+{% block header %}
+  {{
+    dwpHeader({
+      serviceName: "Support for pension services",
+      serviceHref: "/index",
+      container: true,
+            navigation: {
+              items: [
+                  {
+                      href: "#",
+                      text: "Find someone"
+                  },
+                  {
+                      href: "#",
+                      text: "Tasks"
+                  }
+              ]
+          }  
+    })
+  }}
+{% endblock %}
+
+
+<main id="main-content" role="main">
+  {% block content %}{% endblock %}
+</main>
+
+
+
+{% block footer %}
+  {{
+    dwpFooter({
+      meta: {
+        visuallyHiddenTitle: "footer links",
+        items: [
+{
+                    href: "#1",
+                    text: "Accessibility statement"
+                },
+                {
+                    href: "#2",
+                    text: "Privacy"
+                }
+        ]
+      }
+    })
+  }}
+{% endblock %}

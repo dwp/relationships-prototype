@@ -13,10 +13,26 @@
 {% endblock %}
 
 {% block content %}
+
+{% set endReasonLabels = {
+  "appointee-died": "Appointee has died",
+  "legal-authority": "Legal authority in place",
+  "ended-relationship": "Appointee has ended the relationship",
+  "unacceptable-behaviour": "Unacceptable behaviour",
+  "can-act-self": "Claimant can act for themselves"
+} %}
+
+
+{% set months = [
+  "January","February","March","April","May","June",
+  "July","August","September","October","November","December"
+] %}
+
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
-      <h1 class="govuk-heading-l">Check relationship details</h1>
+      <h1 class="govuk-heading-l">Check details before ending the relationship</h1>
 
       <dl class="govuk-summary-list">
                   <div class="govuk-summary-list__row">
@@ -34,20 +50,33 @@
               End reason
             </dt>
             <dd class="govuk-summary-list__value">
-          {{ data['end-reason'] }}
+          {{ endReasonLabels[data["end-reason"]] or "Not provided" }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="/remove-appointee/iteration-3/end-reason">Change<span class="govuk-visually-hidden"> name</span></a>
             </dd>
           </div>
-                    <div class="govuk-summary-list__row">
+           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               End date
             </dt>
+
             <dd class="govuk-summary-list__value">
-          5 Jan 2026
+
+            {% if data["end-date-day"] and data["end-date-month"] and data["end-date-year"] %}
+
+              {{ data["end-date-day"] }}
+              {{ months[data["end-date-month"] | int - 1] }}
+              {{ data["end-date-year"] }}
+
+            {% else %}
+              Not provided
+            {% endif %}
+
             </dd>
-             <dd class="govuk-summary-list__actions">
+
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="/remove-appointee/iteration-3/rel-end-date">Change<span class="govuk-visually-hidden"> name</span></a>
             </dd>
           </div>
         </dl>
@@ -61,7 +90,7 @@
         text: "Name"
       },
       value: {
-        text: "Jennifer Coles"
+        text: "Eric Smith"
       }
     },
         {
@@ -69,7 +98,7 @@
         text: "Date of birth"
       },
       value: {
-        text: "16 Jan 1959"
+        text: "16 Jan 1955"
       }
     },
     {
@@ -95,7 +124,7 @@
         text: "Name"
       },
       value: {
-        text: "James Coles"
+        text: "John Smith"
       }
     },
         {
@@ -103,7 +132,7 @@
         text: "Date of birth"
       },
       value: {
-        text: "10 Feb 1992"
+        text: "28 June 1980"
       }
     },
     {
@@ -111,22 +140,21 @@
         text: "Address"
       },
       value: {
-        html: "7 Acacia Avenue<br>
-        Gateshead<br>
-        Tyne and Wear<br>
-        NE1 2BA"
+        html: "14 West Avenue<br>
+        Leeds<br>
+        LS1 1TN"
       }
     }
   ]
 }) }}
 
-<p class="govuk-body">Confirm that James Coles will no longer act as an Appointee for Jennifer Coles.</p>
+<p class="govuk-body">Confirm that John Smith will no longer act as an Appointee for Eric Smith.</p>
 
 
 
         {{ govukButton({
           text: "Save and confirm",
-          href: "/appointee/remove/iteration-2/end-confirmation"
+          href: "/remove-appointee/iteration-3/end-confirmation"
         }) }}
 
       </form>

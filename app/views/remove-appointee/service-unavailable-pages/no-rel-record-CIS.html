@@ -1,0 +1,30 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-l">Sorry, there is a problem with the service</h1>
+
+      <p class="govuk-body">There are no records existing for this relationship in CIS.</p>
+
+      <p class="govuk-body">Return to <a class="govuk-link" href="/appointee/remove/iteration-2/iteration-2-index">
+        support for pension services</a>.
+      </p>
+      
+
+      <form action="/dp-details" method="post" novalidate>
+
+        <input type="hidden" name="answers-checked" value="true">
+
+
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

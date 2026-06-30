@@ -2,6 +2,13 @@
 
 {% set pageName="Home" %}
 
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+    {% endblock %}
+
 {% block content %}
 
 <div class="govuk-grid-row">

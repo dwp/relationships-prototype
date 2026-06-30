@@ -60,28 +60,64 @@ router.post('/remove-appointee/iteration-2/end-reason', function(request, respon
 // End an Appointee V3
 router.post('/remove-appointee/iteration-3/end-reason', function(request, response) {
      var role = request.session.data['end-reason']
-    if (role == "Appointee has died"){
+    if (role == "appointee-died"){
         response.redirect("/remove-appointee/iteration-3/end-date-death")
-    } else if (role == "Legal authority in place"){
-        response.redirect("/remove-appointee/iteration-3/end-date-la")
-    } else if (role == "Appointee has ended the relationship"){
-        response.redirect("/remove-appointee/iteration-3/end-date-apt-ended")
-    } else if (role == "Unacceptable behaviour"){
-        response.redirect("/remove-appointee/iteration-3/end-date-behaviour")
-    } else if (role == "Claimant can act for themselves"){
-        response.redirect("/remove-appointee/iteration-3/end-date-can-act")
+    } else {
+        response.redirect("/remove-appointee/iteration-3/rel-end-date")
     } 
 })
 
-router.post('/remove-appointee/iteration-3/end-date', function(request, response) {
+//Death end date
+router.post('/remove-appointee/iteration-3/end-date-death', function(request, response) {
 
-    var role = request.session.data['end-date']
-    if (role == "today"){
-        response.redirect("remove-appointee/iteration-3/end-summary")
-    } else if (role == "different-day"){
-        response.redirect("/remove-appointee/iteration-3/end-date-manual")
-    } 
+
+  var role = request.session.data['end-date-death']
+
+  if (role == "today") {
+
+    const today = new Date();
+
+    request.session.data['end-date-day'] = today.getDate();
+    request.session.data['end-date-month'] = today.getMonth() + 1;
+    request.session.data['end-date-year'] = today.getFullYear();
+
+    response.redirect("/remove-appointee/iteration-3/end-summary")
+
+  } else if (role == "different-day") {
+
+    response.redirect("/remove-appointee/iteration-3/end-date-manual")
+
+  }
 })
+
+//end date for all reasons but death
+router.post('/remove-appointee/iteration-3/rel-end-date', function(request, response) {
+
+  var role = request.session.data['end-date']
+
+  if (role == "today") {
+
+    const today = new Date();
+
+    request.session.data['end-date-day'] = today.getDate();
+    request.session.data['end-date-month'] = today.getMonth() + 1;
+    request.session.data['end-date-year'] = today.getFullYear();
+
+    response.redirect("/remove-appointee/iteration-3/end-summary")
+
+  } else if (role == "different-day") {
+
+    response.redirect("/remove-appointee/iteration-3/end-date-manual")
+
+  }
+})
+
+
+router.post('/remove-appointee/iteration-3/end-date-manual', function (req, res) {
+  return res.redirect('/remove-appointee/iteration-3/end-summary');
+});
+
+
 
 router.post('/remove-appointee/iteration-3/end-date-death', function(request, response) {
 

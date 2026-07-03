@@ -85,7 +85,7 @@ router.post('/remove-appointee/iteration-3/end-date-death', function(request, re
 
   } else if (role == "different-day") {
 
-    response.redirect("/remove-appointee/iteration-3/end-date-manual")
+    response.redirect("/remove-appointee/iteration-3/end-date-death-manual")
 
   }
 })
@@ -112,13 +112,14 @@ router.post('/remove-appointee/iteration-3/rel-end-date', function(request, resp
   }
 })
 
-
-router.post('/remove-appointee/iteration-3/end-date-manual', function (req, res) {
+//manual input for death end date 
+router.post('/remove-appointee/iteration-3/end-date-death-manual', function (req, res) {
   return res.redirect('/remove-appointee/iteration-3/end-summary');
 });
 
 
 
+// death date selection today or different
 router.post('/remove-appointee/iteration-3/end-date-death', function(request, response) {
 
     var role = request.session.data['end-date-death']
@@ -128,6 +129,11 @@ router.post('/remove-appointee/iteration-3/end-date-death', function(request, re
         response.redirect("/remove-appointee/iteration-3/end-date-death-manual")
     } 
 })
+
+
+
+
+
 
 // --------------------------------------------------------------
 // Add a PAB - generic

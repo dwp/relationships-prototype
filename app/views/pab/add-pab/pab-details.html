@@ -36,7 +36,7 @@
 
         {% call govukFieldset({
         legend: {
-          text: "Find [PAB]",
+          text: "Find " + data['relationship-type'] + " details",
           classes: "govuk-fieldset__legend--l",
           isPageHeading: true
         }
@@ -49,7 +49,7 @@
             classes: "govuk-!-width-two-thirds",
             id: "name",
             name: "name",
-            autocomplete: "address-line1"
+            value: "John"
           }) }}
 
           {{ govukInput({
@@ -59,7 +59,7 @@
             classes: "govuk-!-width-two-thirds",
             id: "last-name",
             name: "last-name",
-            autocomplete: "address-line2"
+            value: "Erikson"
           }) }}
 
           {{ govukDateInput({
@@ -73,7 +73,24 @@
             },
             hint: {
               text: "For example, 27 3 2024"
-            }
+            },
+            items: [
+              {
+                classes: "govuk-input--width-2",
+                name: "day",
+                value: "10"
+              },
+              {
+                classes: "govuk-input--width-2",
+                name: "month",
+                value: "2"
+              },
+              {
+                classes: "govuk-input--width-4",
+                name: "year",
+                value: "1975"
+              }
+            ]
           }) }}
 
           {{ govukInput({
@@ -83,13 +100,14 @@
             classes: "govuk-input--width-10",
             id: "address-postcode",
             name: "addressPostcode",
+            value: "BA2 4AA",
             autocomplete: "postal-code"
           }) }}
 
            {% endcall %}
 
           {{ govukButton({
-            text: "Continue",
+            text: "Search",
             href: "/pab/add-pab/person-found"
           }) }}
        </form>

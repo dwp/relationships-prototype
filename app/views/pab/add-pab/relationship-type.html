@@ -30,7 +30,7 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
-       <form class="form" method="post">
+       <form class="form" method="post" action="/pab/add-pab/pab-details">
 
           {{ govukRadios({
             name: "relationship-type",
@@ -43,31 +43,30 @@
             },
             items: [
               {
-                value: "appointee",
+                value: "Appointee",
                 text: "Appointee"
               },
                   {
-                value: "poa",
+                value: "Power of Attorney",
                 text: "Power of Attorney"
               },
               {
-                value: "deputyship",
+                value: "Deputyship",
                 text: "Deputyship"
               },
                 {
-                value: "guardianship",
+                value: "Guardianship",
                 text: "Guardianship"
               },
              {
-                value: "controller",
+                value: "Controller",
                 text: "Controller"
               }
             ]
           }) }}
 
           {{ govukButton({
-            text: "Continue",
-            href: "/pab/add-pab/pab-details"
+            text: "Continue"
           }) }}
           
        </form>

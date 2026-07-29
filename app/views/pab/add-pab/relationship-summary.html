@@ -26,11 +26,34 @@
 
 {% endblock %}
 
+
+
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
       <h1 class="govuk-heading-l">Check relationship details</h1>
+
+     {% set months = {  
+      "1": "January",  
+     "2": "February",  
+     "3": "March",  
+     "4": "April",  
+     "5": "May",  
+     "6": "June",  
+     "7": "July",  
+     "8": "August", 
+     "9": "September",  
+     "10": "October",  
+     "11": "November", 
+     "12": "December"
+    } %}
+
+     {% set startDate %}  
+     {{ data['start-date-manual-day'] }}  
+     {{ months[data['start-date-manual-month']] }}  
+     {{ data['start-date-manual-year'] }}
+     {% endset %}
 
         {{ govukSummaryList({
   rows: [
@@ -55,13 +78,13 @@
       key: {
         text: "Start date"
       },
-      value: {
-        text: "5 June 2026"
-      },
+    value: {
+    text: startDate
+    },
     actions: {
       items: [
       {
-         href: "/pab/add-pab/start-date-manual",
+         href: "/pab/add-pab/start-date",
         text: "Change",
         visuallyHiddenText: "start-date"
          }
@@ -105,7 +128,7 @@
   ]
 }) }}
 
-<p class="govuk-body">Confirm that John Erikson is the Power of Attorney for Erik Erikson.</p>
+<p class="govuk-body">Confirm that John Erikson now holds Power of Attorney for Erik Erikson.</p>
 
 
 

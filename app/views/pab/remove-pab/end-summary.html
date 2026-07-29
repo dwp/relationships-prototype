@@ -32,29 +32,58 @@
 
       <h1 class="govuk-heading-l">Check relationship end details</h1>
 
-      <dl class="govuk-summary-list">
-                  <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Relationship type
-            </dt>
-            <dd class="govuk-summary-list__value">
-          Power of Attorney
-            </dd>
-              <dd class="govuk-summary-list__actions">
-            </dd>
-          </div>
-            <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              End date
-            </dt>
-            <dd class="govuk-summary-list__value">
-          5 Jan 2026
-            </dd>
-             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/pab/remove-pab/end-date-manual">Change<span class="govuk-visually-hidden"> end date</span></a>
-            </dd>
-          </div>
-        </dl>
+     {% set months = {  
+      "1": "January",  
+     "2": "February",  
+     "3": "March",  
+     "4": "April",  
+     "5": "May",  
+     "6": "June",  
+     "7": "July",  
+     "8": "August", 
+     "9": "September",  
+     "10": "October",  
+     "11": "November", 
+     "12": "December"
+    } %}
+
+     {% set endDate %}  
+     {{ data['end-date-day'] }}  
+     {{ months[data['end-date-month']] }}  
+     {{ data['end-date-year'] }}
+     {% endset %}
+
+        {{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Relationship type"
+      },
+      value: {
+        text: "Power of Attorney"
+      },
+      actions: {
+     }
+    },
+        {
+      key: {
+        text: "End date"
+      },
+    value: {
+    text: endDate
+    },
+    actions: {
+      items: [
+      {
+         href: "/pab/remove-pab/end-date",
+        text: "Change",
+        visuallyHiddenText: "end-date"
+         }
+       ]
+     }
+    }
+  ]
+}) }}
 
 
 <h2 class="govuk-heading-m">Power of Attorney details</h2>
@@ -91,7 +120,7 @@
   ]
 }) }}
 
-<p class="govuk-body">Confirm that John Erikson will no longer be the Power of Attorney for Erik Erikson.</p>
+<p class="govuk-body">Confirm that John Erikson will no longer hold Power of Attorney for Erik Erikson.</p>
 
 
 

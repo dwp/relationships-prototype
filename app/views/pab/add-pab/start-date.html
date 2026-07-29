@@ -32,28 +32,22 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
-       <form class="form" method="post">
+       <form class="form" method="post" action="/pab/add-pab/relationship-summary">
 
-
-        {{ govukRadios({
-        name: "start-date",
+      {{ govukDateInput({
+        id: "start-date",
+        namePrefix: "start-date-manual",
         fieldset: {
           legend: {
             text: "When did the relationship start?",
+            isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
         },
-        items: [
-          {
-            value: "today",
-            text: "Today"
-          },
-          {
-            value: "different-day",
-            text: "A different day"
-          }
-        ]
-        }) }}
+        hint: {
+          text: "For example, 27 3 2024"
+        }
+      }) }}
 
           {{ govukButton({
             text: "Continue"

@@ -32,22 +32,24 @@
 
       <form class="form" method="post" action="/pab/remove-pab/end-summary">
 
-  {{ govukDateInput({
-    id: "end-date",
-    namePrefix: "end-date",
-    fieldset: {
-      legend: {
-        text: "When did the relationship end?",
-        isPageHeading: true,
-        classes: "govuk-fieldset__legend--l"
-      }
+{{ govukDateInput({
+  id: "end-date",
+  namePrefix: "end-date",
+  fieldset: {
+    legend: {
+      text: "When did the relationship end?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
     }
-  }) }}
+  },
+  hint: {
+    text: "For example, 27 3 2024"
+  }
+}) }}
 
-
-        {{ govukButton({
-          text: "Continue"
-        }) }}
+{{ govukButton({
+   text: "Continue"
+}) }}
 
       </form>
 

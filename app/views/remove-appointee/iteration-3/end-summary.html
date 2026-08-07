@@ -81,6 +81,39 @@
           </div>
         </dl>
 
+        <h2 class="govuk-heading-m">Appointee</h2>
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Name"
+      },
+      value: {
+        text: "John Smith"
+      }
+    },
+        {
+      key: {
+        text: "Date of birth"
+      },
+      value: {
+        text: "28 June 1980"
+      }
+    },
+    {
+      key: {
+        text: "Address"
+      },
+      value: {
+        html: "14 West Avenue<br>
+        Leeds<br>
+        LS1 1TN"
+      }
+    }
+  ]
+}) }}
+
       <h2 class="govuk-heading-m">Customer</h2>
 
 {{ govukSummaryList({
@@ -115,38 +148,7 @@
   ]
 }) }}
 
-<h2 class="govuk-heading-m">Appointee</h2>
 
-{{ govukSummaryList({
-  rows: [
-    {
-      key: {
-        text: "Name"
-      },
-      value: {
-        text: "John Smith"
-      }
-    },
-        {
-      key: {
-        text: "Date of birth"
-      },
-      value: {
-        text: "28 June 1980"
-      }
-    },
-    {
-      key: {
-        text: "Address"
-      },
-      value: {
-        html: "14 West Avenue<br>
-        Leeds<br>
-        LS1 1TN"
-      }
-    }
-  ]
-}) }}
 
 <p class="govuk-body">Confirm that John Smith will no longer act as an Appointee for Eric Smith.</p>
 

@@ -8,19 +8,23 @@
 
 {% block beforeContent %}
 
+<div class="govuk-!-padding-top-4">
+
   {{
-        dwpQuickReference({
-            ariaLabel: "personal-details",
-            primaryReference: {
-                text: 'Name:',
-                value: 'Erik Erikson'
-            },
-            secondaryReference: {
-                text: 'National Insurance number:',
-                value: 'QQ 12 34 56 A'
-            }
-        })
-}}
+    dwpQuickReference({
+      ariaLabel: "personal-details",
+      primaryReference: {
+        text: 'Name:',
+        value: 'Erik Erikson'
+      },
+      secondaryReference: {
+        text: 'National Insurance number:',
+        value: 'QQ 12 34 56 A'
+      }
+    })
+  }}
+
+</div>
 
 {% endblock %}
 
@@ -48,7 +52,7 @@
               },   
               {
                 value: "legal-authority",
-                text: "Legal authority in place",
+                text: "Higher legal authority in place",
                 checked: checked("end-reason", "legal-authority")
               },
               {

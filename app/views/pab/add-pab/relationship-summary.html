@@ -130,15 +130,17 @@
 
 <p class="govuk-body">Confirm that John Erikson now holds Power of Attorney for Erik Erikson.</p>
 
+{{ govukButton({
+  text: "Save and Confirm",
+  href: "/pab/add-pab/confirmation"
+}) }}
 
+<p class="govuk-body">
+<a href="#" class="govuk-link">Cancel</a>
+</p>
 
-        {{ govukButton({
-          text: "Confirm",
-          href: "/pab/add-pab/confirmation"
-        }) }}
+</form>
 
-      </form>
-
-    </div>
-  </div>
+</div>
+</div>
 {% endblock %}

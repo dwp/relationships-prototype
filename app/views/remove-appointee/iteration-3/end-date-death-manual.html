@@ -20,16 +20,19 @@
       <form class="form" method="post" action="/remove-appointee/iteration-3/end-summary">
 
   {{ govukDateInput({
-    id: "end-date-death-manual",
-    namePrefix: "end-date-death-manual",
-    fieldset: {
-      legend: {
-        text: "When did the appointee die?",
-        isPageHeading: true,
-        classes: "govuk-fieldset__legend--l"
-      }
+  id: "end-date-death-manual",
+  namePrefix: "end-date-death-manual",
+  fieldset: {
+    legend: {
+      text: "When did the appointee die?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
     }
-  }) }}
+  },
+  hint: {
+    text: "For example, 27 3 2024"
+  }
+}) }}
 
 
         {{ govukButton({

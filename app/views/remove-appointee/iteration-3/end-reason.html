@@ -4,29 +4,7 @@
   Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
-<div class="app-quick-reference-spacing">
 
-{% block beforeContent %}
-
-<div class="govuk-!-padding-top-4">
-
-  {{
-    dwpQuickReference({
-      ariaLabel: "personal-details",
-      primaryReference: {
-        text: 'Name:',
-        value: 'Erik Erikson'
-      },
-      secondaryReference: {
-        text: 'National Insurance number:',
-        value: 'QQ 12 34 56 A'
-      }
-    })
-  }}
-
-</div>
-
-{% endblock %}
 
 <main class="govuk-main-wrapper" id="main-content" role="main">
   {% block content %}

@@ -1,0 +1,40 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+
+    <h1 class="govuk-heading-l">No person found</h1>
+
+    <p class="govuk-body">
+      No person was found using the details entered. You can search again using different details or exit this journey.
+    </p>
+
+
+    {{ govukRadios({
+      name: "nextAction",
+      fieldset: {
+        legend: {
+          text: "What would you like to do?",
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      items: [
+        {
+          value: "search-again",
+          text: "Search again"
+        },
+        {
+          value: "exit",
+          text: "Exit and return to claiment details "
+        }
+      ]
+    }) }}
+
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+
+  </div>
+</div>
+{% endblock %}

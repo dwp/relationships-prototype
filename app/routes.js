@@ -147,6 +147,17 @@ router.post('/pab/add-pab/person-found', function(request, response) {
     } 
 })
 
+router.post('/pab/add-pab-build1/person-found', function(request, response) {
+
+    var role = request.session.data['correctPerson']
+
+    if (role == "yes"){
+        response.redirect("/pab/add-pab-build1/start-date")
+    } else if (role == "no"){
+        response.redirect("/pab/add-pab-build1/pab-details")
+    }
+})
+
 
 // Remove a PAB - generic
 router.post('/pab/remove-pab/end-date', function(request, response) {

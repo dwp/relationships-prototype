@@ -1,0 +1,109 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+
+
+
+{% endblock %}
+
+
+{% block content %}
+  <div class="govuk-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+       <form class="form" method="post">
+
+        {% call govukFieldset({
+        legend: {
+          text: "Find " + data['relationship-type'] + " details",
+          classes: "govuk-fieldset__legend--l",
+          isPageHeading: true
+        }
+      }) %}
+
+           {{ govukInput({
+            label: {
+              text: "First name"
+            },
+            classes: "govuk-!-width-two-thirds",
+            id: "name",
+            name: "name",
+            value: "John"
+          }) }}
+
+          {{ govukInput({
+            label: {
+              text: "Last name"
+            },
+            classes: "govuk-!-width-two-thirds",
+            id: "last-name",
+            name: "last-name",
+            value: "Erikson"
+          }) }}
+
+          {{ govukDateInput({
+            id: "dob",
+            namePrefix: "dob",
+            fieldset: {
+              legend: {
+                text: "Date of birth",
+                isPageHeading: true
+              }
+            },
+            hint: {
+              text: "For example, 27 3 2024"
+            },
+            items: [
+              {
+                classes: "govuk-input--width-2",
+                name: "day",
+                value: "10"
+              },
+              {
+                classes: "govuk-input--width-2",
+                name: "month",
+                value: "2"
+              },
+              {
+                classes: "govuk-input--width-4",
+                name: "year",
+                value: "1975"
+              }
+            ]
+          }) }}
+
+          {{ govukInput({
+            label: {
+              text: "Postcode"
+            },
+            classes: "govuk-input--width-10",
+            id: "address-postcode",
+            name: "addressPostcode",
+            value: "BA2 4AA",
+            autocomplete: "postal-code"
+          }) }}
+
+           {% endcall %}
+
+          {{ govukButton({
+            text: "Search",
+            href: "/pab/add-pab-build1/person-found"
+          }) }}
+       </form>
+       
+      </div>
+   </div>
+  </div>
+
+  {% endblock %}
+
+
